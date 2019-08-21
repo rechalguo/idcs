@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.IcRefersMapper" >
+  <resultMap id="BaseResultMap" type="com.blc.apps.idcs.admin.entity.IcRefers" >
+    <id column="SEQ_NO" property="seqNo" jdbcType="DECIMAL" />
+    <result column="R_URL" property="rUrl" jdbcType="VARCHAR" />
+    <result column="R_USER_KEY" property="rUserKey" jdbcType="VARCHAR" />
+    <result column="R_TIME_OUT" property="rTimeOut" jdbcType="DECIMAL" />
+    <result column="R_WEIGHT" property="rWeight" jdbcType="DECIMAL" />
+    <result column="IS_OFF" property="isOff" jdbcType="VARCHAR" />
+    <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP" />
+    <result column="R_DESCRIPTION" property="rDescription" jdbcType="VARCHAR" />
+    <result column="CLASS_NAME" property="className" jdbcType="VARCHAR" />
+    <result column="R_NAME" property="rName" jdbcType="VARCHAR" />
+    <result column="R_ID" property="rId" jdbcType="VARCHAR" />
+    <result column="R_SERVER_KEY" property="rServerKey" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, 
+    CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.blc.apps.idcs.admin.entity.IcRefersExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IC_REFERS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from IC_REFERS
+    where SEQ_NO = #{seqNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from IC_REFERS
+    where SEQ_NO = #{seqNo,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.blc.apps.idcs.admin.entity.IcRefersExample" >
+    delete from IC_REFERS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.blc.apps.idcs.admin.entity.IcRefers" >
+    insert into IC_REFERS (SEQ_NO, R_URL, R_USER_KEY, 
+      R_TIME_OUT, R_WEIGHT, IS_OFF, 
+      EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, 
+      R_NAME, R_ID, R_SERVER_KEY
+      )
+    values (#{seqNo,jdbcType=DECIMAL}, #{rUrl,jdbcType=VARCHAR}, #{rUserKey,jdbcType=VARCHAR}, 
+      #{rTimeOut,jdbcType=DECIMAL}, #{rWeight,jdbcType=DECIMAL}, #{isOff,jdbcType=VARCHAR}, 
+      #{expiredDate,jdbcType=TIMESTAMP}, #{rDescription,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}, 
+      #{rName,jdbcType=VARCHAR}, #{rId,jdbcType=VARCHAR}, #{rServerKey,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blc.apps.idcs.admin.entity.IcRefers" >
+    insert into IC_REFERS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="rUrl != null" >
+        R_URL,
+      </if>
+      <if test="rUserKey != null" >
+        R_USER_KEY,
+      </if>
+      <if test="rTimeOut != null" >
+        R_TIME_OUT,
+      </if>
+      <if test="rWeight != null" >
+        R_WEIGHT,
+      </if>
+      <if test="isOff != null" >
+        IS_OFF,
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE,
+      </if>
+      <if test="rDescription != null" >
+        R_DESCRIPTION,
+      </if>
+      <if test="className != null" >
+        CLASS_NAME,
+      </if>
+      <if test="rName != null" >
+        R_NAME,
+      </if>
+      <if test="rId != null" >
+        R_ID,
+      </if>
+      <if test="rServerKey != null" >
+        R_SERVER_KEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=DECIMAL},
+      </if>
+      <if test="rUrl != null" >
+        #{rUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rUserKey != null" >
+        #{rUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="rTimeOut != null" >
+        #{rTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="rWeight != null" >
+        #{rWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="isOff != null" >
+        #{isOff,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rDescription != null" >
+        #{rDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="rName != null" >
+        #{rName,jdbcType=VARCHAR},
+      </if>
+      <if test="rId != null" >
+        #{rId,jdbcType=VARCHAR},
+      </if>
+      <if test="rServerKey != null" >
+        #{rServerKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.blc.apps.idcs.admin.entity.IcRefersExample" resultType="java.lang.Integer" >
+    select count(*) from IC_REFERS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update IC_REFERS
+    <set >
+      <if test="record.seqNo != null" >
+        SEQ_NO = #{record.seqNo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rUrl != null" >
+        R_URL = #{record.rUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rUserKey != null" >
+        R_USER_KEY = #{record.rUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rTimeOut != null" >
+        R_TIME_OUT = #{record.rTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rWeight != null" >
+        R_WEIGHT = #{record.rWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isOff != null" >
+        IS_OFF = #{record.isOff,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expiredDate != null" >
+        EXPIRED_DATE = #{record.expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rDescription != null" >
+        R_DESCRIPTION = #{record.rDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null" >
+        CLASS_NAME = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rName != null" >
+        R_NAME = #{record.rName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rId != null" >
+        R_ID = #{record.rId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rServerKey != null" >
+        R_SERVER_KEY = #{record.rServerKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update IC_REFERS
+    set SEQ_NO = #{record.seqNo,jdbcType=DECIMAL},
+      R_URL = #{record.rUrl,jdbcType=VARCHAR},
+      R_USER_KEY = #{record.rUserKey,jdbcType=VARCHAR},
+      R_TIME_OUT = #{record.rTimeOut,jdbcType=DECIMAL},
+      R_WEIGHT = #{record.rWeight,jdbcType=DECIMAL},
+      IS_OFF = #{record.isOff,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{record.expiredDate,jdbcType=TIMESTAMP},
+      R_DESCRIPTION = #{record.rDescription,jdbcType=VARCHAR},
+      CLASS_NAME = #{record.className,jdbcType=VARCHAR},
+      R_NAME = #{record.rName,jdbcType=VARCHAR},
+      R_ID = #{record.rId,jdbcType=VARCHAR},
+      R_SERVER_KEY = #{record.rServerKey,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blc.apps.idcs.admin.entity.IcRefers" >
+    update IC_REFERS
+    <set >
+      <if test="rUrl != null" >
+        R_URL = #{rUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rUserKey != null" >
+        R_USER_KEY = #{rUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="rTimeOut != null" >
+        R_TIME_OUT = #{rTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="rWeight != null" >
+        R_WEIGHT = #{rWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="isOff != null" >
+        IS_OFF = #{isOff,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rDescription != null" >
+        R_DESCRIPTION = #{rDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        CLASS_NAME = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="rName != null" >
+        R_NAME = #{rName,jdbcType=VARCHAR},
+      </if>
+      <if test="rId != null" >
+        R_ID = #{rId,jdbcType=VARCHAR},
+      </if>
+      <if test="rServerKey != null" >
+        R_SERVER_KEY = #{rServerKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQ_NO = #{seqNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blc.apps.idcs.admin.entity.IcRefers" >
+    update IC_REFERS
+    set R_URL = #{rUrl,jdbcType=VARCHAR},
+      R_USER_KEY = #{rUserKey,jdbcType=VARCHAR},
+      R_TIME_OUT = #{rTimeOut,jdbcType=DECIMAL},
+      R_WEIGHT = #{rWeight,jdbcType=DECIMAL},
+      IS_OFF = #{isOff,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      R_DESCRIPTION = #{rDescription,jdbcType=VARCHAR},
+      CLASS_NAME = #{className,jdbcType=VARCHAR},
+      R_NAME = #{rName,jdbcType=VARCHAR},
+      R_ID = #{rId,jdbcType=VARCHAR},
+      R_SERVER_KEY = #{rServerKey,jdbcType=VARCHAR}
+    where SEQ_NO = #{seqNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,36 @@
+MERGE INTO IC_INFO_UP IU
+USING (select TO_CHAR(I.REQ_TIME, 'YYYY/MM') REPORT_DATE,
+              I.USER_ID,
+              U.USER_NAME,
+              I.DATA_SRC,
+              R.R_NAME,
+              COUNT(I.SEQ_NO) CNT
+         from IC_INFO I, IC_USER U, IC_REFERS R
+        WHERE I.REQ_TIME >= TO_DATE('2019/1/1', 'YYYY/MM/DD')
+          AND I.REQ_TIME < TO_DATE('2019/10/1', 'YYYY/MM/DD')
+          AND I.USER_ID = U.USER_ID
+          AND I.DATA_SRC = R.R_ID(+)
+          AND I.STAT < '9'
+        GROUP BY TO_CHAR(I.REQ_TIME, 'YYYY/MM'),
+                 I.USER_ID,
+                 U.USER_NAME,
+                 I.DATA_SRC,
+                 R.R_NAME) IUN
+ON (IU.REPORT_DATE = IUN.REPORT_DATE AND IU.USER_ID = IUN.USER_ID AND IU.DATA_SRC = IUN.DATA_SRC)
+WHEN MATCHED THEN
+  UPDATE SET IU.CNT = IUN.CNT
+WHEN NOT MATCHED THEN
+  INSERT
+    (IU.REPORT_DATE,
+     IU.USER_ID,
+     IU.USER_NAME,
+     IU.DATA_SRC,
+     IU.R_NAME,
+     IU.CNT)
+  VALUES
+    (IUN.REPORT_DATE,
+     IUN.USER_ID,
+     IUN.USER_NAME,
+     IUN.DATA_SRC,
+     IUN.R_NAME,
+     IUN.CNT)

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.CompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.blc.apps.idcs.admin.entity.IcCompany" >
+    <id column="ORG_ID" property="orgId" jdbcType="VARCHAR" />
+    <result column="ORG_NAME" property="orgName" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ACTIVED" property="actived" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ORG_ID, ORG_NAME, CREATE_TIME, ACTIVED
+  </sql>
+  
+  <select id="selectOrgByPage" resultMap="BaseResultMap" parameterType="com.blc.apps.idcs.admin.model.OrgModel" >
+    select
+    <include refid="Base_Column_List" />
+    from IC_COMPANY
+    where 1=1
+    <if test="org.orgId != null and ''.toString()!=org.orgId" >
+    AND  org_id=#{org.orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="org.orgName != null and ''.toString()!=org.orgName" >
+    <bind name="pattern" value="'%'+orgName+'%'"/>
+    AND  org_name like #{pattern,jdbcType=VARCHAR}
+    </if>
+  </select>
+  
+  
+</mapper>

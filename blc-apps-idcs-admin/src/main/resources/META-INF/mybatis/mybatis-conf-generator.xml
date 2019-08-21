@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration 
+	PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动的jar包地址 
+	<classPathEntry location="d:\\db_driver\\mysql-connector-java-5.1.19-bin.jar" />
+	-->
+	<classPathEntry location="d:\\db_driver\\ojdbc6-11.2.0.jar" />
+	<context id="context1">
+
+		<commentGenerator>  
+		    <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+		    <property name="suppressAllComments" value="true" />  
+		</commentGenerator> 
+		
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/casher?autoReconnect=true&amp;characterEncoding=utf8&amp;useUnicode=true&amp;serverTimezone=UTC" 
+			userId="root"
+			password="123456" />
+		<jdbcConnection driverClass="org.apache.hive.jdbc.HiveDriver"
+			connectionURL="jdbc:hive2://192.168.108.72:10000/hnblc?hive.server2.thrift.resultset.serialize.in.tasks=true" userId="hadoop"
+			password="hadoop" />
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@(description=(ADDRESS_LIST=(address=(protocol=tcp)(host=192.168.111.115)(port=1521))(load_balance=yes))(connect_data=(server=dedicated)(service_name=entarch)(failover_mode=(type=session)(method=basic)(retries=5)(delay=15))))"
+			userId="hnblc"
+			password="hnblc@zh" />
+		-->  
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.103.32:1521/orcl"
+			userId="idcs"
+			password="idcs_0417" />
+
+		  <!--  默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer；  true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+		  <javaTypeResolver >  
+		     <property name="forceBigDecimals" value="false" />  
+		  </javaTypeResolver>  
+		  
+        <!-- 生成模型的包名和位置-->
+		<!-- <javaModelGenerator targetPackage="com.development.merchant.module.goods.dao.entity" -->
+		<javaModelGenerator targetPackage="com.blc.apps.idcs.admin.entity"
+			targetProject="blc-apps-idcs-admin/src/test/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->  
+			<property name="enableSubPackages" value="true" />
+			<!-- 从数据库返回的值被清理前后的空格  --> 
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		 <!-- 生成映射文件的包名和位置-->
+		<sqlMapGenerator targetPackage="com.blc.apps.idcs.admin.mapper"
+			targetProject="blc-apps-idcs-admin/src/test/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		
+		<!-- 生成DAO的包名和位置-->
+		<javaClientGenerator targetPackage="com.blc.apps.idcs.admin.mapper"
+			targetProject="blc-apps-idcs-admin/src/test/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<!-- 要生成哪些表-->
+		<!-- 
+		 <table tableName="CEB2_INVT_HEAD"></table>
+		 <table tableName="CEB2_INVT_LIST"></table>
+		 <table tableName="CEB3_INVT_HEAD"></table>
+		 <table tableName="CEB3_INVT_LIST"></table>
+		<table tableName="CUR_GOODS_LIST"></table>
+		<table tableName="CUR_GOODS_HEAD"></table>
+		<table tableName="CEB2_TAX_HEAD"></table>
+		<table tableName="BASIC_COUNTRY"></table>
+		 -->
+		<table tableName="IC_INFO_UP"></table>
+	</context>
+</generatorConfiguration>

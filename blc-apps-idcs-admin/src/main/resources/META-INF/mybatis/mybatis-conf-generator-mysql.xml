@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration 
+	PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动的jar包地址 
+	<classPathEntry location="d:\\db_driver\\ojdbc6-11.2.0.jar" />
+	-->
+	<classPathEntry location="d:\\db_driver\\mysql-connector-java-5.1.19-bin.jar" />
+	<context id="context1">
+
+		<commentGenerator>  
+		    <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+		    <property name="suppressAllComments" value="true" />  
+		</commentGenerator> 
+		
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/casher?autoReconnect=true&amp;characterEncoding=utf8&amp;useUnicode=true&amp;serverTimezone=UTC" 
+			userId="root"
+			password="123456" />
+		<jdbcConnection driverClass="org.apache.hive.jdbc.HiveDriver"
+			connectionURL="jdbc:hive2://192.168.108.72:10000/hnblc?hive.server2.thrift.resultset.serialize.in.tasks=true" userId="hadoop"
+			password="hadoop" />
+		-->  
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.103.78:3306/ecssent?autoReconnect=true&amp;characterEncoding=utf8&amp;useUnicode=true&amp;serverTimezone=UTC" 
+			userId="root"
+			password="123456" />
+		  <!--  默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer；  true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+		  <javaTypeResolver >  
+		     <property name="forceBigDecimals" value="false" />  
+		  </javaTypeResolver>  
+		  
+        <!-- 生成模型的包名和位置-->
+		<!-- <javaModelGenerator targetPackage="com.development.merchant.module.goods.dao.entity" -->
+		<javaModelGenerator targetPackage="com.blc.apps.bigdata.domain.cache.entity"
+			targetProject="blc-apps-bigdata-domain/src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->  
+			<property name="enableSubPackages" value="true" />
+			<!-- 从数据库返回的值被清理前后的空格  --> 
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		 <!-- 生成映射文件的包名和位置-->
+		<sqlMapGenerator targetPackage="com.blc.apps.bigdata.domain.cache.entity.mapper"
+			targetProject="blc-apps-bigdata-domain/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		
+		<!-- 生成DAO的包名和位置-->
+		<javaClientGenerator targetPackage="com.blc.apps.bigdata.domain.cache.entity.mapper"
+			targetProject="blc-apps-bigdata-domain/src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<!-- 要生成哪些表-->
+		<!-- 
+		<table tableName="IC_CACHE"></table>
+		<table tableName="IC_W_FILES"></table>
+		<table tableName="IC_W_INFO"></table>
+		<table tableName="IC_USER"></table>
+		<table tableName="IC_COMPANY"></table>
+		<table tableName="IC_INFO_TEST"></table>
+		 -->
+		 <table tableName="CEB2_INVT_HEAD"></table>
+		 <table tableName="CEB2_INVT_LIST"></table>
+		 <table tableName="CEB3_INVT_HEAD"></table>
+		 <table tableName="CEB3_INVT_LIST"></table>
+		
+	</context>
+</generatorConfiguration>

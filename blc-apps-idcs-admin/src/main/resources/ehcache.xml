@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gbk"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd">
+    <diskStore path="java.io.tmpdir"/>
+ 
+    <!-- 
+        集群多台服务器中的缓存，这里是要同步一些服务器的缓存
+        server1 hostName:192.168.8.9 port:400001 cacheName:mobileCache
+        server2 hostName:192.168.8.32 port:400002 cacheName:mobileCache
+        server3 hostName:192.168.8.231 port:400003 cacheName:mobileCache
+        注意：每台要同步缓存的服务器的RMI通信socket端口都不一样，在配置的时候注意设置
+    -->
+    
+    <!-- cacheManagerPeerProviderFactory 两种方式 -->
+    <!-- server1 的cacheManagerPeerProviderFactory配置 
+    <cacheManagerPeerProviderFactory 
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory" 
+        properties="hostName=localhost,
+        port=400001,
+        socketTimeoutMillis=2000,
+        peerDiscovery=manual,
+        rmiUrls=//192.168.8.32:400002/mobileCache|//192.168.5.231:400003/mobileCache"
+    />
+    -->
+    
+    <!--
+	搜索某个网段上的缓存
+	timeToLive
+	    0是限制在同一个服务器
+	    1是限制在同一个子网
+	    32是限制在同一个网站
+	    64是限制在同一个region
+	    128是限制在同一个大洲
+	    255是不限制
+	-->
+	<cacheManagerPeerProviderFactory
+	    class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+	    properties="hostName=127.0.0.1,port=1000,socketTimeoutMillis=120000"
+	/>
+    
+    <defaultCache 
+           maxElementsInMemory="10000"  
+           eternal="false"  
+           timeToIdleSeconds="120"  
+           timeToLiveSeconds="120"  
+           overflowToDisk="true"  
+           maxElementsOnDisk="10000000"  
+           diskPersistent="false"  
+           diskExpiryThreadIntervalSeconds="120"  
+           memoryStoreEvictionPolicy="LRU"
+           />  
+	 <cache name="myCache"
+	    maxElementsOnDisk="100"
+	    maxElementsInMemory="1"
+	    eternal="false"  
+        timeToIdleSeconds="120"  
+        timeToLiveSeconds="120"  
+        overflowToDisk="true"  
+	    memoryStoreEvictionPolicy="LFU"
+        transactionalMode="off"/>
+</ehcache>

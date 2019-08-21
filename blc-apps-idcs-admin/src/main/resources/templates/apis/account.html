@@ -1,0 +1,424 @@
+<div class="col-lg-12 col-sm-12 col-xs-12">
+	    <style>
+	    .btn_search{
+		    padding: 0 4px;
+			line-height: 23px;
+			border-width: 2px;
+			font-size: 12px;
+			float: right;
+			width: 40%;
+	    }
+	    .full {
+	    	width: 100% !important;
+	    }
+	    label.error
+        {
+            color:Red;
+            font-size:13px;
+            margin-left:5px;
+            padding-left:16px;
+            background:url("/assets/users/img/error.png") left no-repeat;
+        }
+        .inbox{
+        	padding-top: 10px;
+        	padding-bottom: 10px;
+        	min-height:217px;
+        }
+	    </style>
+		<!-- condition start -->
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 col-xs-12">
+				<form id="f_con" action="" >
+					<div class="col-lg-2 col-sm-6 col-xs-12 input-group">
+						<input class="date-picker full" name="stat.vDate" type="text" readonly placeholder="选择账期" />
+						<span class="input-group-addon">
+							<i class="fa fa-calendar bigger-110"></i>
+						</span>
+					</div>
+					<div class="col-lg-2 col-sm-6 col-xs-12 input-group">
+						<input name="stat.userId" class="full" type="text" placeholder="用户ID" />
+					</div>
+					
+					<div class="col-lg-2 col-sm-6 col-xs-12 center input-group">
+				 		<button id="btn_filter" class="btn btn_search btn-purple" type="button">筛选</button>
+				 	</div>
+				</form>
+			</div>
+			<script>
+			$(function(){
+				$('.date-picker').datepicker({
+					language: 'zh',
+					autoclose: true,
+					todayHighlight: true,
+					startView: 1,
+					minViewMode: 1,
+					startDate: '2019-06',
+					endDate: new Date(),
+					format:'yyyy-mm'
+				});
+				$('.date-picker').datepicker("update",dateFormat(new Date(), 'YYYY-MM'));
+			});
+			</script>
+			<!-- condition end -->
+		</div>
+	
+		<!-- 数据table -->
+		<div class="row">
+			<div class="col-lg-6 col-sm-6 col-xs-12" id="tb_container">
+				<table id="tb_user" lay-filter="tb_user">
+				</table>
+			</div>
+			<div class="inbox col-lg-6 col-sm-6 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+					    <div id="ec_ds" style="height:210px">无数据。。。</div>
+					</div>
+				</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="inbox col-lg-12 col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+					    <div id="ec_trend" style="height:210px">无数据。。。</div>
+					</div>
+				</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+		</div>
+		<div class="vspace-12-sm"></div>
+</div>
+
+
+
+<!-- REQUIRED JS SCRIPTS -->
+<script th:src="@{/assets/echarts/echarts-all-3.js}"></script>								
+<script th:inline="none">
+var userdistChart;
+var userTrendChart;
+var cellHeight=Math.ceil($('#main-container').height()/2 - 20);
+$('#tb_container').css('height', cellHeight);
+
+
+function dataSrc(v){
+	if('0'==v) {
+		return '错误请求';
+	} else if('1'==v){
+		return '本地';
+	}
+	return v;
+}
+//格式YYYY/MM/DD HH:mm:ss
+function dateFormat(v, fmt){
+	return moment(v).format(fmt);
+}
+//格式化数据
+function userDataHref(r){
+	return '<a href="javascript:renderUserCharts(\''+r.userId+'\')" class="layui-btn layui-btn-normal layui-btn-xs" title="点击查看图表">'+r.counts+'</a>';
+}
+function renderUserCharts(userid){
+	var option={
+			'stat.userId':userid
+		}
+	loadChartUserDetail(cellHeight, option);
+	loadChartUserTrend(cellHeight, option);
+}
+
+$(function(){
+	
+	layui.use(['table', 'layer', 'form'],function(){
+		var form=layui.form;
+		var table=layui.table;
+		var layer=layui.layer;
+		
+		table.render({
+		    elem: '#tb_user'
+		    ,method: 'post'
+		    ,url: '/sta/user/list' //数据接口
+		    ,page: {    	//开启分页
+		    	limit: 10
+		    }
+		    ,cols: [[ //表头
+		      {field: 'vDate', title: '账期', minWidth:80, align:'center', templet:function(r){return dateFormat(r.vDate,'YYYY-MM');}}
+		      ,{field: 'userId', title: '用户ID', minWidth:120, align:'center'}
+		      ,{field: 'userName', title: '用户名', minWidth:150, align:'center'}
+		      ,{field: 'counts', title: '检验量', minWidth: 180, align:'center' ,templet:function(r){return userDataHref(r);}}
+		    ]]
+			,response: {
+			      statusCode: 0 //重新规定成功的状态码为 200，table 组件默认为 0
+		    }
+		    ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+		      return {
+		        "code": res.code, //解析接口状态
+		        "msg": res.msg, //解析提示文本
+		        "count": res.data.totalRows, //解析数据长度
+		        "data": res.data.rows //解析数据列表
+		      };
+		    }
+		    ,done: function(res, curr, count){
+		    }
+		  });
+		
+		  $('#btn_filter').bind('click', function(e){
+			  var infos=$.serializeObject($('#f_con'));
+			  table.reload('tb_user', {
+				  //设定异步数据接口的额外参数，任意设
+				  where: infos
+			   }); //只重载数据
+			  loadChartUserDetail(cellHeight);
+			  loadChartUserTrend(cellHeight);
+		  });
+	});
+	
+	loadChartUserDetail(cellHeight);
+	loadChartUserTrend(cellHeight);
+	$('body').resize(function (){
+		userdistChart.resize();
+		userTrendChart.resize();
+	});
+});
+
+
+/**
+ * 数据检验源分布
+ */
+function loadChartUserDetail(cellHeight, option){
+	if(!option) option={}
+	var p=$.serializeObject($('#f_con'));
+	var pdata=new Object();
+	jQuery.extend(true, pdata, p, option);
+	
+	//加载图表
+	$.ajax({
+		url: '/sta/user/dsdist',
+		type: 'POST',
+		dataType: 'json',
+		data: pdata,
+		success:function(data) {
+			if(!data||!data.data||!data.data.rows)return;
+			var datas=data.data.rows;
+			var entValues=[];
+			var entNames=[];
+			var total=0;
+			$.each(datas, function(i, item){
+				var ds=dataSrc(item.dataSrc);
+				entNames.push(ds);
+				entValues.push({'name':ds, 'value':item.counts });
+				total += item.counts;
+			});
+			var p4=document.getElementById('ec_ds');
+			$(p4).css('height',cellHeight-72);
+			userdistChart = echarts.init(p4);
+			userdistChart.showLoading({
+				animation:'QuarticIn',
+				text:'疯狂加载中...'
+			});
+			var title_str=dateFormat(data.data.stat.vDate,'YYYY-MM')+'月份检验数据来源分布';
+			var userid_default='(全部)'
+			if(data.data.stat.userId) title_str=title_str+'-'+data.data.stat.userId;
+			else title_str=title_str+userid_default;
+			//指定图表的配置项和数据
+			option4 = {
+					title: {
+						text: title_str,
+				     	left: 'left',
+						textStyle: {
+					      	color:'black',
+					      	fontWeight: 'bolder',
+					      	fontSize: '20'
+					      },
+				      	padding: [2, 4]
+					},
+					tooltip: {
+				    	show: true,
+				    	trigger: 'item',
+					    formatter: "{b} : {c} ({d}%)"
+				    },
+				    backgroundColor: '#fff',
+					  //graphic: graphicGroup, //添加图层，可实现自定义内容
+					  legend: {
+					      data:entNames, //['电商','网商','仓储','物流','报关','支付'],
+					      left: '1%',
+					      top: '40%',
+					      orient: 'vertical'
+					  },
+					  toolbox: {
+					      show : true,
+					      feature : {
+					          dataView : {show: true, readOnly: true},
+					          saveAsImage : {show: true}
+					      },
+					      top: '15%'
+					  },
+					  series: [
+								{
+									name: '调用量',
+								    type:'pie',
+								    center: ['50%', '50%'],
+								    radius: '40%',
+								    minAngle: 10,
+								    label:{
+								    	normal:{
+								    		show: true,
+									    	formatter: '{b}({c})'
+								    	}
+								    },
+								    labelLine:{
+								    	normal:{
+								    		length: 10,
+								    		length2: 15,
+								    		smooth: true
+								    	}
+								    },
+								    data: entValues //
+								}
+						  ]
+			};
+			
+			//使用刚指定的配置项和数据显示图表。
+			userdistChart.setOption(option4, true);
+			userdistChart.hideLoading();
+		}
+	});
+}
+
+/**
+ * 接口调用量走势 
+ *
+ * option {
+	columnDisplayedUser:true/false,
+	userId: user,
+	vDate: '2019-02',
+	vDateEnd: '2019-02'
+   }
+查询近两年的调用数据默认 vDate:lastYear, vDateEnd:curMonth
+userId:默认为空
+columnDisplayedUser:默认为true
+ */
+function loadChartUserTrend(cellHeight,option){
+	if(!option){
+		option={
+			'columnDisplayedUser':false,
+			'stat.vDate': dateFormat(new Date(), 'YYYY-MM')
+		}
+	}
+	if(!option.hasOwnProperty('columnDisplayedUser')) option['columnDisplayedUser']=false;
+	var p=$.serializeObject($('#f_con'));
+	var datas=new Object();
+	jQuery.extend(true, datas, p, option);
+	if(!datas.hasOwnProperty('stat.vDate') || datas['stat.vDate'].length<=0) {
+		datas['stat.vDate']=dateFormat(new Date(), 'YYYY-MM')
+	} else {
+		datas['stat.vDate']=p['stat.vDate'];
+	}
+	datas['stat.vDateEnd']=datas['stat.vDate'];
+	datas['stat.vDate']=moment(datas['stat.vDateEnd']+'-01').subtract(1,'years').format('YYYY-MM');
+	
+	//加载图表
+	$.ajax({
+		url: '/sta/user/showchart',
+		type: 'POST',
+		dataType: 'json',
+		data:datas,
+		success:function(data) {
+			if(!data||!data.data||!data.data.rows)return;
+			var datas=data.data.rows;
+			var xArr=[];
+			var dataArr=[];
+			if(datas&&datas.length>0) {
+				$.each(datas, function(i, item){
+					xArr.push(moment(item.vDate).format('YYYY-MM'));
+					dataArr.push(item.counts);
+				});
+			} else {
+			}
+			
+			var p4=document.getElementById('ec_trend');
+			$(p4).css('height',cellHeight-72);
+			userTrendChart = echarts.init(p4);
+			userTrendChart.showLoading({
+				animation:'QuarticIn',
+				text:'疯狂加载中...'
+			});
+			var title_str='用户请求量走势';
+			var userid_default='(全部)'
+			if(data.data.stat.userId) title_str=title_str+'-'+data.data.stat.userId;
+			else title_str=title_str+userid_default;
+			//指定图表的配置项和数据
+			option4 = {
+				title: {
+					text: title_str,
+			       	left: 'center',
+					textStyle: {
+			        	color:'black',
+			        	fontWeight: 'bolder',
+			        	fontSize: '20',
+			        },
+			       	padding: [2, 4]
+				},
+			    tooltip: {
+			    	show: true
+			    },
+			    toolbox: {
+				      show : true,
+				      feature : {
+				          dataView : {show: true, readOnly: true},
+				          saveAsImage : {show: true}
+				      },
+				      top: '10%'
+				},
+			    backgroundColor: '#fff',
+			    grid: {
+			        left: '10%',
+			        right: '5%',
+			        bottom: '10%',
+			        top: '20%',
+			        containLabel: false
+			    },
+			    xAxis: {
+			    	show: true,
+			        type: 'category',
+			        axisTick: {//决定是否显示坐标刻度  
+			            alignWithLabel: true,
+			            show:true
+			        },
+			        data:xArr//['2019/1/1','2019/1/2','2019/1/3','2019/1/4']
+			    },
+			    yAxis: {
+			        type: 'value',
+			        name: '单位: 次',
+			        axisLabel:{
+			    		show: true,
+				    	formatter: function(v){
+				    		return v;
+				    	}
+				    },
+			    },
+			    series: [
+			        {
+			        	name: '调用量',
+			            type: 'line',
+			            symbol: 'emptyCircle',
+			            symbolSize: 8,
+			            showAllSymbol: true,
+			            lineStyle: {
+			            	normal: {
+			            		width:4
+			            	}
+			            },
+			            smooth: true,
+			            data: dataArr//[1234,5432,2323,2123]
+			        }
+			    ]
+			};
+			
+			//使用刚指定的配置项和数据显示图表。
+			userTrendChart.setOption(option4, true);
+			userTrendChart.hideLoading();
+		}
+	});
+}
+</script>
+
+
+
+<!-- 设置select2 下拉框问题 -->
+<div id="w" style="position:absolute;z-index:19892018">
+</div>

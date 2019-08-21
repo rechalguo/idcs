@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.ReferMapper" >
+  <resultMap id="BaseResultMap" type="com.blc.apps.idcs.admin.entity.IcRefers" >
+    <id column="SEQ_NO" property="seqNo" jdbcType="DECIMAL" />
+    <result column="R_URL" property="rUrl" jdbcType="VARCHAR" />
+    <result column="R_USER_KEY" property="rUserKey" jdbcType="VARCHAR" />
+    <result column="R_TIME_OUT" property="rTimeOut" jdbcType="DECIMAL" />
+    <result column="R_WEIGHT" property="rWeight" jdbcType="DECIMAL" />
+    <result column="IS_OFF" property="isOff" jdbcType="VARCHAR" />
+    <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP" />
+    <result column="R_DESCRIPTION" property="rDescription" jdbcType="VARCHAR" />
+    <result column="CLASS_NAME" property="className" jdbcType="VARCHAR" />
+    <result column="R_NAME" property="rName" jdbcType="VARCHAR" />
+    <result column="R_ID" property="rId" jdbcType="VARCHAR" />
+    <result column="R_SERVER_KEY" property="rServerKey" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, 
+    CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY
+  </sql>
+  
+  
+  <select id="selectRefersByPage" resultMap="BaseResultMap" parameterType="com.blc.apps.idcs.admin.model.ReferModel" >
+    select
+    <include refid="Base_Column_List" />
+    from IC_REFERS 
+    where 1=1
+    <if test="refer.rName != null and ''.toString()!=refer.rName" >
+    <bind name="pattern" value="'%'+refer.rName+'%'"/>
+    AND  R_NAME LIKE #{pattern,jdbcType=VARCHAR}
+    </if>
+    <if test="refer.isOff != null and ''.toString()!=refer.isOff" >
+    AND  IS_OFF = #{refer.isOff,jdbcType=VARCHAR}
+    </if>
+  </select>
+ 
+  <insert id="insertSelective" parameterType="com.blc.apps.idcs.admin.entity.IcRefers" >
+    insert into IC_REFERS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      SEQ_NO,
+      <if test="rUrl != null" >
+        R_URL,
+      </if>
+      <if test="rUserKey != null" >
+        R_USER_KEY,
+      </if>
+      <if test="rTimeOut != null" >
+        R_TIME_OUT,
+      </if>
+      <if test="rWeight != null" >
+        R_WEIGHT,
+      </if>
+      <if test="isOff != null" >
+        IS_OFF,
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE,
+      </if>
+      <if test="rDescription != null" >
+        R_DESCRIPTION,
+      </if>
+      <if test="className != null" >
+        CLASS_NAME,
+      </if>
+      <if test="rName != null" >
+        R_NAME,
+      </if>
+      <if test="rId != null" >
+        R_ID,
+      </if>
+      <if test="rServerKey != null" >
+        R_SERVER_KEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      SEQ_IDCS.NEXTVAL,
+      <if test="rUrl != null" >
+        #{rUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rUserKey != null" >
+        #{rUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="rTimeOut != null" >
+        #{rTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="rWeight != null" >
+        #{rWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="isOff != null" >
+        #{isOff,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rDescription != null" >
+        #{rDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="rName != null" >
+        #{rName,jdbcType=VARCHAR},
+      </if>
+      <if test="rId != null" >
+        #{rId,jdbcType=VARCHAR},
+      </if>
+      <if test="rServerKey != null" >
+        #{rServerKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

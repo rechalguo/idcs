@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.BaseInfoMapper" >
+ 
+  
+   <select id="queryCheckType" resultType="java.util.HashMap" parameterType="com.blc.apps.idcs.admin.model.BaseInfoModel">
+	select t.ck_id id, t.ck_name text from IC_CONF_CKTYPE t where 1 = 1
+  </select>
+  
+  <!-- 
+  select distinct t.prov id, t.prov text from BASIC_ID_REG_CONF t where 1 = 1
+	 <if test="p != null" >
+   		<bind name="pattern" value="'%'+p+'%'"/>
+   	   AND (t.prov like #{pattern,jdbcType=VARCHAR})
+    </if>
+   -->
+  <select id="queryReqType" resultType="java.util.HashMap" parameterType="com.blc.apps.idcs.admin.model.BaseInfoModel">
+	select t.r_Id id, t.r_Name text from IC_CONF_REQTYPE t where 1 = 1
+  </select>
+  
+  
+  <select id="queryOrgs" resultType="java.util.HashMap" parameterType="com.blc.apps.idcs.admin.model.BaseInfoModel">
+	select t.Org_Id id,
+       t.Org_Name text,
+       case t.actived
+         when 'OFF' THEN
+          'disabled'
+         when 'ON' THEN
+          ''
+       end disabled
+	  from IC_COMPANY t
+	 where 1 = 1
+  </select>
+</mapper>

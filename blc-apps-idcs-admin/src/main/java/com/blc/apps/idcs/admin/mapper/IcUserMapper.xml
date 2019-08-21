@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.IcUserMapper" >
+  <resultMap id="BaseResultMap" type="com.blc.apps.idcs.admin.entity.IcUser" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="U_TYPE" property="uType" jdbcType="VARCHAR" />
+    <result column="U_PASSWORD" property="uPassword" jdbcType="VARCHAR" />
+    <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="REQ_TYPE" property="reqType" jdbcType="VARCHAR" />
+    <result column="ORG_ID" property="orgId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" extends="BaseResultMap" >
+    <result column="PRIVATE_KEY" property="privateKey" jdbcType="CLOB" />
+    <result column="PUBLIC_KEY" property="publicKey" jdbcType="CLOB" />
+    <result column="PRIVATE_KEY_API" property="privateKeyApi" jdbcType="CLOB" />
+    <result column="PUBLIC_KEY_API" property="publicKeyApi" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, 
+    ORG_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.blc.apps.idcs.admin.entity.IcUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from IC_USER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.blc.apps.idcs.admin.entity.IcUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IC_USER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from IC_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from IC_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.blc.apps.idcs.admin.entity.IcUserExample" >
+    delete from IC_USER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" >
+    insert into IC_USER (USER_ID, USER_NAME, U_TYPE, 
+      U_PASSWORD, EXPIRED_DATE, CREATE_DATE, 
+      PAY_TYPE, REQ_TYPE, ORG_ID, 
+      PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, 
+      PUBLIC_KEY_API)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{uType,jdbcType=VARCHAR}, 
+      #{uPassword,jdbcType=VARCHAR}, #{expiredDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{payType,jdbcType=VARCHAR}, #{reqType,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, 
+      #{privateKey,jdbcType=CLOB}, #{publicKey,jdbcType=CLOB}, #{privateKeyApi,jdbcType=CLOB}, 
+      #{publicKeyApi,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" >
+    insert into IC_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="uType != null" >
+        U_TYPE,
+      </if>
+      <if test="uPassword != null" >
+        U_PASSWORD,
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE,
+      </if>
+      <if test="reqType != null" >
+        REQ_TYPE,
+      </if>
+      <if test="orgId != null" >
+        ORG_ID,
+      </if>
+      <if test="privateKey != null" >
+        PRIVATE_KEY,
+      </if>
+      <if test="publicKey != null" >
+        PUBLIC_KEY,
+      </if>
+      <if test="privateKeyApi != null" >
+        PRIVATE_KEY_API,
+      </if>
+      <if test="publicKeyApi != null" >
+        PUBLIC_KEY_API,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="uType != null" >
+        #{uType,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="reqType != null" >
+        #{reqType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="privateKey != null" >
+        #{privateKey,jdbcType=CLOB},
+      </if>
+      <if test="publicKey != null" >
+        #{publicKey,jdbcType=CLOB},
+      </if>
+      <if test="privateKeyApi != null" >
+        #{privateKeyApi,jdbcType=CLOB},
+      </if>
+      <if test="publicKeyApi != null" >
+        #{publicKeyApi,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.blc.apps.idcs.admin.entity.IcUserExample" resultType="java.lang.Integer" >
+    select count(*) from IC_USER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update IC_USER
+    <set >
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uType != null" >
+        U_TYPE = #{record.uType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uPassword != null" >
+        U_PASSWORD = #{record.uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expiredDate != null" >
+        EXPIRED_DATE = #{record.expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createDate != null" >
+        CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payType != null" >
+        PAY_TYPE = #{record.payType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqType != null" >
+        REQ_TYPE = #{record.reqType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgId != null" >
+        ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.privateKey != null" >
+        PRIVATE_KEY = #{record.privateKey,jdbcType=CLOB},
+      </if>
+      <if test="record.publicKey != null" >
+        PUBLIC_KEY = #{record.publicKey,jdbcType=CLOB},
+      </if>
+      <if test="record.privateKeyApi != null" >
+        PRIVATE_KEY_API = #{record.privateKeyApi,jdbcType=CLOB},
+      </if>
+      <if test="record.publicKeyApi != null" >
+        PUBLIC_KEY_API = #{record.publicKeyApi,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update IC_USER
+    set USER_ID = #{record.userId,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      U_TYPE = #{record.uType,jdbcType=VARCHAR},
+      U_PASSWORD = #{record.uPassword,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{record.expiredDate,jdbcType=TIMESTAMP},
+      CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      PAY_TYPE = #{record.payType,jdbcType=VARCHAR},
+      REQ_TYPE = #{record.reqType,jdbcType=VARCHAR},
+      ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      PRIVATE_KEY = #{record.privateKey,jdbcType=CLOB},
+      PUBLIC_KEY = #{record.publicKey,jdbcType=CLOB},
+      PRIVATE_KEY_API = #{record.privateKeyApi,jdbcType=CLOB},
+      PUBLIC_KEY_API = #{record.publicKeyApi,jdbcType=CLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update IC_USER
+    set USER_ID = #{record.userId,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      U_TYPE = #{record.uType,jdbcType=VARCHAR},
+      U_PASSWORD = #{record.uPassword,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{record.expiredDate,jdbcType=TIMESTAMP},
+      CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      PAY_TYPE = #{record.payType,jdbcType=VARCHAR},
+      REQ_TYPE = #{record.reqType,jdbcType=VARCHAR},
+      ORG_ID = #{record.orgId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" >
+    update IC_USER
+    <set >
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="uType != null" >
+        U_TYPE = #{uType,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        U_PASSWORD = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="reqType != null" >
+        REQ_TYPE = #{reqType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        ORG_ID = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="privateKey != null" >
+        PRIVATE_KEY = #{privateKey,jdbcType=CLOB},
+      </if>
+      <if test="publicKey != null" >
+        PUBLIC_KEY = #{publicKey,jdbcType=CLOB},
+      </if>
+      <if test="privateKeyApi != null" >
+        PRIVATE_KEY_API = #{privateKeyApi,jdbcType=CLOB},
+      </if>
+      <if test="publicKeyApi != null" >
+        PUBLIC_KEY_API = #{publicKeyApi,jdbcType=CLOB},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" >
+    update IC_USER
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      U_TYPE = #{uType,jdbcType=VARCHAR},
+      U_PASSWORD = #{uPassword,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      REQ_TYPE = #{reqType,jdbcType=VARCHAR},
+      ORG_ID = #{orgId,jdbcType=VARCHAR},
+      PRIVATE_KEY = #{privateKey,jdbcType=CLOB},
+      PUBLIC_KEY = #{publicKey,jdbcType=CLOB},
+      PRIVATE_KEY_API = #{privateKeyApi,jdbcType=CLOB},
+      PUBLIC_KEY_API = #{publicKeyApi,jdbcType=CLOB}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blc.apps.idcs.admin.entity.IcUser" >
+    update IC_USER
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      U_TYPE = #{uType,jdbcType=VARCHAR},
+      U_PASSWORD = #{uPassword,jdbcType=VARCHAR},
+      EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      REQ_TYPE = #{reqType,jdbcType=VARCHAR},
+      ORG_ID = #{orgId,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.StatMapper" >
+  
+  <!-- 统计用户调用量   表格-->
+  <select id="selectUserStaticsByPage" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+ select T.REPORT_DATE vDate,
+ 	   <if test="columnDisplayedUser" >
+       T.USER_ID     userId,
+       T.USER_NAME   userName,
+       </if>
+       SUM(T.CNT)         counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDateEnd,jdbcType=DATE},'MM'), 1)
+   <if test="stat.userId != null and ''.toString()!=stat.userId" >
+   AND T.USER_ID = ?
+   </if>
+ GROUP BY 
+ 	<if test="columnDisplayedUser" >
+ 	T.USER_ID, T.USER_NAME,
+ 	</if> 
+ 	T.REPORT_DATE
+ ORDER BY T.REPORT_DATE ASC, counts DESC
+  </select>
+  
+  <!-- 统计用户调用量   图-->
+  <select id="selectUserStaticsChart" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+    
+    select T.REPORT_DATE vDate,
+       <if test="columnDisplayedUser" >
+       T.USER_ID userId,
+       T.USER_NAME userName,
+	   </if>
+       SUM(T.CNT) counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDateEnd,jdbcType=DATE},'MM'), 1)
+   <if test="stat.userId != null and ''.toString()!=stat.userId" >
+    AND T.USER_ID =#{stat.userId,jdbcType=VARCHAR}
+   </if>
+ GROUP BY
+  	<if test="columnDisplayedUser" >
+      T.USER_ID,
+      T.USER_NAME,
+    </if>
+ 	T.REPORT_DATE
+ ORDER BY T.REPORT_DATE asc, counts desc
+  </select>
+  
+  <!-- 查看用户数据源分布 -->
+  <select id="selectUserByDataSources" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+    select T.DATA_SRC dataSrc,
+       SUM(T.CNT) counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDateEnd,jdbcType=DATE},'MM'), 1)
+   <if test="stat.userId != null and ''.toString()!=stat.userId" >
+   AND  T.USER_ID =#{stat.userId,jdbcType=VARCHAR}
+   </if>
+ GROUP BY T.DATA_SRC
+  </select>
+  
+  <!-- ============================================ -->
+  
+  <!-- 统计第三方接口调用量  -->
+  <select id="selectApiStaticsByPage" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+    
+    select T.REPORT_DATE vDate,
+       <if test="columnDisplayedUser" >
+       T.DATA_SRC userId,
+       T.R_NAME userName,
+	   </if>
+       SUM(T.CNT) counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDateEnd,jdbcType=DATE},'MM'), 1)
+   <if test="stat.dataSrc != null and ''.toString()!=stat.dataSrc" >
+    AND  T.DATA_SRC =#{stat.dataSrc,jdbcType=VARCHAR}
+   </if>
+ GROUP BY
+       <if test="columnDisplayedUser" >
+       T.DATA_SRC,
+       T.R_NAME,
+	   </if> 
+  	   T.REPORT_DATE
+ ORDER BY T.REPORT_DATE asc, COUNTS DESC
+  </select>
+  <!-- 统计第三方接口调用量  图-->
+  <select id="selectApiStaticsChart" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+    
+    select T.REPORT_DATE vDate,
+       <if test="columnDisplayedUser" >
+       T.DATA_SRC userId,
+       T.R_NAME userName,
+	   </if>
+       SUM(T.CNT) counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDateEnd,jdbcType=DATE},'MM'), 1)
+   <if test="stat.dataSrc != null and ''.toString()!=stat.dataSrc" >
+    AND  T.DATA_SRC =#{stat.dataSrc,jdbcType=VARCHAR}
+   </if>
+   <if test="stat.dataSrc == null or ''.toString()==stat.dataSrc" >
+    AND  T.DATA_SRC NOT IN ('0', '1')
+   </if>
+ GROUP BY
+       <if test="columnDisplayedUser" >
+       T.DATA_SRC,
+       T.R_NAME,
+	   </if> 
+  	   T.REPORT_DATE
+ ORDER BY vDate asc, COUNTS DESC
+  </select>
+  
+  <!-- 查看接口数据源分布 -->
+  <select id="selectApiByDataSources" 
+  	resultType="com.blc.apps.idcs.admin.entity.ext.Static" 
+  	parameterType="com.blc.apps.idcs.admin.model.StatModel" >
+    select T.DATA_SRC dataSrc,
+       SUM(T.CNT) counts
+  from IC_INFO_UP T
+ WHERE T.REPORT_DATE >= TRUNC(#{stat.vDate,jdbcType=DATE},'MM')
+   AND T.REPORT_DATE &lt; add_months(TRUNC(#{stat.vDate,jdbcType=DATE},'MM'), 1)
+ GROUP BY T.DATA_SRC
+  </select>
+  
+  
+  <!--  ===================   -->
+  
+  <!-- 查看接口数据源分布 -->
+  <update id="apiStatics" 
+  	parameterType="java.util.HashMap" >
+  MERGE INTO IC_INFO_UP IU
+	USING (select TRUNC(I.REQ_TIME, 'MM') REPORT_DATE,
+	              I.USER_ID,
+	              U.USER_NAME,
+	              I.DATA_SRC,
+	              R.R_NAME,
+	              COUNT(I.SEQ_NO) CNT
+	         from IC_INFO I, IC_USER U, IC_REFERS R
+	        WHERE I.REQ_TIME >= TRUNC(#{start,jdbcType=DATE},'MM')
+	          AND I.REQ_TIME &lt; TRUNC(#{end,jdbcType=DATE},'MM')
+	          AND I.USER_ID = U.USER_ID
+	          AND I.DATA_SRC = R.R_ID(+)
+	          AND I.STAT &lt; '9'
+	        GROUP BY TRUNC(I.REQ_TIME, 'MM'),
+	                 I.USER_ID,
+	                 U.USER_NAME,
+	                 I.DATA_SRC,
+	                 R.R_NAME) IUN
+	ON (IU.REPORT_DATE = IUN.REPORT_DATE AND IU.USER_ID = IUN.USER_ID AND IU.DATA_SRC = IUN.DATA_SRC)
+	WHEN MATCHED THEN
+	  UPDATE SET IU.CNT = IUN.CNT
+	WHEN NOT MATCHED THEN
+	  INSERT
+	    (IU.REPORT_DATE,
+	     IU.USER_ID,
+	     IU.USER_NAME,
+	     IU.DATA_SRC,
+	     IU.R_NAME,
+	     IU.CNT)
+	  VALUES
+	    (IUN.REPORT_DATE,
+	     IUN.USER_ID,
+	     IUN.USER_NAME,
+	     IUN.DATA_SRC,
+	     IUN.R_NAME,
+	     IUN.CNT)
+  </update>
+</mapper>

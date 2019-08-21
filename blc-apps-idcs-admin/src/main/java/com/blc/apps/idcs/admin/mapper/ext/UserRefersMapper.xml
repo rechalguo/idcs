@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.UserRefersMapper" >
+  
+  <select id="selectUserRefersByPage" resultType="com.blc.apps.idcs.admin.entity.ext.UserRefers" parameterType="com.blc.apps.idcs.admin.model.UserRefersModel" >
+    select U.USER_ID rUserId,
+       U.USER_NAME userName,
+       R.R_ID rId,
+       R.R_NAME rName,
+       UR.R_SEQ_NO rSeqNo,
+       UR.R_WEIGHT rWeight,
+       UR.R_IS_EXPIRED rIsExpired,
+       UR.R_IS_OFF rIsOff,
+       UR.R_DESCRIPTION rDescription
+	  from IC_USER U
+	 INNER JOIN IC_USER_REFERS UR
+	    ON (U.USER_ID = UR.R_USER_ID)
+	 INNER JOIN IC_REFERS R
+	    ON (UR.R_SEQ_NO = R.SEQ_NO)
+    WHERE 1=1
+    <if test="accRefer.rUserId != null and ''.toString()!=accRefer.rUserId" >
+    AND UR.R_USER_ID=#{accRefer.rUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="accRefer.rId != null and ''.toString()!=accRefer.rId" >
+    AND R.R_ID=#{accRefer.rId,jdbcType=VARCHAR}
+    </if>
+    
+    order by ur.r_user_id asc
+  </select>
+  
+  
+  
+  
+</mapper>

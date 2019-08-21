@@ -1,0 +1,636 @@
+		<div>
+		    <style>
+		    .btn_search{
+			    padding: 0 4px;
+				line-height: 23px;
+				border-width: 2px;
+				font-size: 12px;
+				float: right;
+				width: 40%;
+		    }
+		    .full {
+		    	width: 100% !important;
+		    }
+		    label.error
+	        {
+	            color:Red;
+	            font-size:13px;
+	            margin-left:5px;
+	            padding-left:16px;
+	            background:url("/assets/users/img/error.png") left no-repeat;
+	        }
+		    </style>
+			<!-- condition start -->
+			<div class="row">
+				<form id="f_con" action="">
+					<div class="col-lg-2 col-sm-6 col-xs-12">
+						<input name="user.userId" class="full" type="text" placeholder="用户ID" />
+					</div>
+				    <div class="col-lg-2 col-sm-6 col-xs-12">
+					    <select name="user.orgId" class="select2 full" id="orgId_Con">
+					    	<option value="">所有机构</option>
+					    </select>
+				    </div>
+					
+					<div class="col-lg-2 col-sm-6 col-xs-12 center">
+				 		<button id="btn_filter" class="btn btn_search btn-purple" type="button">筛选</button>
+				 	</div>
+				</form>
+			<!-- condition end -->
+			</div>
+			<script>
+			$(function(){
+				$.ajax({
+					url: '/idcs/base/org',
+					type: 'get',
+					dataType: 'json',
+					success:function(response){
+						var data=response.rows;
+						if(!data) return;
+						$.each(data,function(i,item){
+							if(item.hasOwnProperty('disabled')) delete item['disabled'];
+						});
+						$('#orgId_Con').select2({
+						     data: data,
+							 language: "zh-CN",
+						     placeholder: "所有机构",
+							 allowClear: true,
+							 multiple: false,
+						     escapeMarkup: function (markup) { return markup; }, // 自定义格式化防止xss注入
+							 width: '100%',
+							 dropdownParent: $('#w')
+						});
+					}
+				});
+			});
+			</script>
+		</div>
+	
+		<!-- 数据table -->
+		<table id="tb_user" lay-filter="tb_user">
+		</table>
+		<div class="well well-sm">
+			<p>
+				<i class="fa fa-exclamation-circle red"></i>
+				当"所属机构"不可用时，编辑用户信息时必须指定新的机构</p>
+		</div>
+		<div class="vspace-12-sm"></div>
+
+
+
+								
+<script th:inline="none">
+var validator;
+
+function userType(r){
+	var v=r.uType;
+	if('1'==v) {
+		return '身份证号+名字';
+	} else if('2'==v){
+		return '身份证号+名字+电商代码';
+	} else if('3'==v){
+		return '身份证号+名字+电商代码+业务单号';
+	} else if('4'==v){
+		return '身份证号+名字+电商代码+业务单据';
+	}
+	return v;
+}
+//格式YYYY/MM/DD HH:mm:ss
+function dateFormat(v, fmt){
+	return moment(v).format(fmt);
+}
+function reqType(v){
+	if('1'==v) return '直调';
+	else if('2'==v) return '混调';
+	return v;
+}
+
+/**
+ * 添加用户
+ */
+function add(layer){
+	if(validator) validator.resetForm();
+	$('#f_user_edited')[0].reset();
+	$('#userIdTxt').html('添加新用户');
+	$('#req_add_id').css('display','block');
+	$('#createDate').datepicker("update",new Date());
+	$('#expiredDate').datepicker("update",new Date());
+	$('#reqType').select2("val",['1']);
+	$('#orgId').select2('val',['']);
+	$('#uType').select2("val",['3']);
+	var idx=layer.open({
+        type: 1 //此处以iframe举例
+        ,title: ''
+        ,area: '80%'
+        ,shadeClose:false
+        ,btn: ['保存', '取消'] //只是为了演示
+        ,btnAlign: 'c'
+        ,content: $('#user_editor2')
+        ,move :'.page-header'
+        ,yes: function(index, layero){
+        	if(!$("#f_user_edited").valid()) {
+        		return;
+        	}
+        	var usernew=$.serializeObject($('#f_user_edited'));
+        	if(saveUser(usernew, true)){
+        		layer.close(idx);
+        		layui.use(['table'],function(){
+        			var table=layui.table;
+        			table.reload('tb_user');
+        		})
+        	}
+        }
+        ,btn2: function(){
+          layer.close(idx);
+        }
+      });
+}
+
+/**
+ * 编辑用户信息
+ */
+function edit(layer, rObj){
+	var row=rObj.data;
+	if(!row) return;
+	if(validator) validator.resetForm();
+	$('#f_user_edited')[0].reset();
+	$('#req_add_id').css('display','none');
+	$('#userIdTxt').html(row.userId);
+	$('#userId').val(row.userId);
+	$('#uPassword').val(row.uPassword);
+	//$('#uPassword').password(row.uPassword);
+	$('#userName').val(row.userName);
+	$('#uType').select2("val",[row.uType]);
+	$('#createDate').datepicker("update",new Date(row.createDate));
+	$('#expiredDate').datepicker("update",new Date(row.expiredDate));
+	//$('#orgId').select2("val",row.orgId);
+	$('#orgId').select2('val',[row.orgId]);
+	$('#reqType').select2("val",[row.reqType]);
+	
+	var idx=layer.open({
+        type: 1 //此处以iframe举例
+        ,title: ''
+        ,area: '80%'
+        ,shadeClose:false
+        ,btn: ['保存', '取消'] //只是为了演示
+        ,btnAlign: 'c'
+        ,content: $('#user_editor2')
+        ,move :'.page-header'
+        ,yes: function(index, layero){
+        	if(!$("#f_user_edited").valid()) {
+        		return;
+        	}
+        	var usernew=$.serializeObject($('#f_user_edited'));
+        	usernew=diffObj(row, usernew);
+        	usernew.userId=row.userId;
+        	if(Object.keys(usernew).length<=1){
+				layer.alert("用户信息未发生变化");
+				return;
+			}
+        	if(saveUser(usernew, false)){
+        		rObj.update(usernew);
+        		layer.close(idx);
+        	}
+        }
+        ,btn2: function(){
+          layer.close(idx);
+        }
+      });
+}
+/**
+ * 编辑用户密钥信息
+ */
+function edit_priv(layer, rObj){
+	var row=rObj.data;
+	if(!row) return;
+	$('#userIdDetail').html(row.userId);
+	$('#privateKey').html(row.privateKey);
+	$('#publicKey').html(row.publicKey);
+	$('#publicKeyApi').html(row.publicKeyApi);
+	
+	layer.open({
+        type: 1 //此处以iframe举例
+        ,title: ''
+        ,area: '80%'
+        ,shadeClose:false
+        ,btn: ['重新生成'] //只是为了演示
+        ,btnAlign: 'c'
+        ,move:'.page-header'
+        ,content: $('#user_detail')
+        ,yes: function(index, layero){
+        	$.ajax({
+				url: '/idcs/user/rsa/reset',
+				type: 'post',
+				data: {userId:row.userId},
+				dataType: 'json',
+				error:function(XMLHttpRequest,msg,ex){
+					alert(msg);
+				},
+				success:function(response){
+				    layer.alert(response.msg);
+					if("0"==response.code){
+						var data=response.data;
+					    $('#privateKey').html(data.privateKey);
+					    $('#publicKey').html(data.publicKey);
+					    $('#publicKeyApi').html(data.publicKeyApi);
+					    rObj.update(data);
+					}
+				}
+			});
+        }
+      });
+}
+
+/**
+ * 保存用户信息
+ */
+function saveUser(user,newer){
+	var flag=false;
+	var url='/idcs/user/save';
+	if(newer) url='/idcs/user/add';
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: user,
+		dataType: 'json',
+		async: false,
+		success:function(response){
+			layui.use('layer', function(){
+			  var layer = layui.layer;
+			  layer.alert(response.msg);
+			});
+			if('0'==response.code) {
+				flag=true;
+			}
+		}
+	});
+	return flag;
+}
+
+$(function(){
+	/**
+	 * input的检验
+	 */
+	 validator=$("#f_user_edited").validate({
+		rules: {
+			userId: { required: true,
+				remote:{
+					url: '/idcs/user/exists',
+					type: 'POST',
+					dataType: 'json',
+                    data: {
+                        userId: function () { return $("#userId").val(); },
+                    },
+                    dataFilter: function (data, type) {//判断控制器返回的内容
+                    	var code=data.code;
+						if('1'===code) {
+							return true; //true表示填写信息有误
+						} else {
+							return false;
+						}
+                    }
+				}},
+			userName: { required: true },
+			uPassword: { required: true, rangelength:[5,20] },
+			uType: { required: true },
+			createDate: { required: true, date:true },
+			expiredDate: { required: true, date:true },
+			orgId: { required: true },
+			reqType: { required: true }
+		},
+		//自定义错误提示信息
+		messages: {
+			userId:{
+				required:'必填',
+				remote:'ID已存在'
+			},
+			rDescription: {
+				maxlength: jQuery.validator.format("最多填写{0}个字符")
+			}
+		}
+	});
+	
+	
+	
+	layui.use(['table', 'layer', 'form'],function(){
+		var form=layui.form;
+		var table=layui.table;
+		var layer=layui.layer;
+		
+		table.render({
+		    elem: '#tb_user'
+		    ,method: 'post'
+		    ,url: '/idcs/user/list' //数据接口
+		    ,defaultToolbar: ['filter']
+		    ,toolbar: '#toolbar'
+		    ,page: {    	//开启分页
+		    	limit: 5
+		    }
+		    ,cols: [[ //表头
+		      {field: 'userId', title: 'ID', minWidth:80, align:'center'}
+		      ,{field: 'userName', title: '用户名', minWidth:80, align:'center'}
+		      ,{field: 'uType', title: '验证类型', minWidth:280, align:'center', templet:function(r){return userType(r);}}
+		      ,{field: 'createDate', title: '注册时间', minWidth:180, align:'center', templet:function(r){return dateFormat(r.createDate,'YYYY-MM-DD');}} 
+		      ,{field: 'expiredDate', title: '有效期', minWidth: 180, align:'center', templet:function(r){return dateFormat(r.expiredDate,'YYYY-MM-DD');}}
+		      ,{field: 'orgId', title: '所属机构', minWidth: 80, align:'center', sort: true}
+		      ,{field: 'reqType', title: '接口模式', minWidth: 80, align:'center', templet:function(r){return reqType(r.reqType);}}
+		      ,{field: '', title: '密钥信息', toolbar: '#barDemo',minWidth: 80, align:'center'}
+		    ]]
+			,response: {
+			      statusCode: 0 //重新规定成功的状态码为 200，table 组件默认为 0
+		    }
+		    ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+		      return {
+		        "code": res.code, //解析接口状态
+		        "msg": res.msg, //解析提示文本
+		        "count": res.data.totalRows, //解析数据长度
+		        "data": res.data.rows //解析数据列表
+		      };
+		    }
+		  });
+	
+		  //监听行工具
+		  table.on('tool(tb_user)', function(obj){
+		    var data = obj.data;
+		    if(obj.event === 'detail'){
+		       edit_priv(layer, obj);
+		    }else if(obj.event==='edit'){
+		        edit(layer, obj);
+		    }
+		  });
+		  //监听工具栏
+		  table.on('toolbar(tb_user)', function(obj){
+			  if('newUser'===obj.event){
+				  add(layer);
+			  }
+		  });
+		
+		  $('#btn_filter').bind('click', function(e){
+			  var infos=$.serializeObject($('#f_con'));
+			  table.reload('tb_user', {
+				  //设定异步数据接口的额外参数，任意设
+				  where: infos
+			   }); //只重载数据
+		  });
+	});
+	
+});
+</script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+</script>
+<script type="text/html" id="toolbar">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="newUser">添加新用户</button>
+  </div>
+</script>
+
+<div id="user_detail" class="page-content" style="display:none;overflow-x:hidden">
+<style>
+.textareaLabel {
+	text-align: right; margin:0 auto;
+}
+.textarea_pri {
+	width: 95%;
+	height: 150px;
+}
+.textarea_pub {
+	width: 95%;
+	height: 70px;
+}
+</style>
+	<!-- /section:settings.box -->
+	<div class="page-header">
+		<h1>
+			<p id="userIdDetail" style="text-align:center">用户信息变更</p>
+		</h1>
+	</div><!-- /.page-header -->
+
+	<div class="row">
+		<div class="col-sm-10 col-xs-12">
+			<form class="form-horizontal" role="form" id="f_user_priv">
+			<!-- PAGE CONTENT BEGINS -->
+			<!-- #section:elements.form -->
+			<div class="row">
+				<label class="col-sm-3 textareaLabel" for="privateKey">用户密钥</label>
+				<div class="col-sm-9">
+					<textarea id="privateKey" readOnly class="autosize-transition textarea_pri"/>
+				</div>
+			</div>
+			<!-- /section:elements.form -->
+			<div class="space-4"></div>
+			<div class="row">
+				<label class="col-sm-3 textareaLabel" for="publicKey">用户公钥</label>
+
+				<div class="col-sm-9">
+					<textarea id="publicKey" readOnly class="autosize-transition textarea_pub"/>
+				</div>
+			</div>
+			<div class="space-4"></div>
+			<div class="row">
+				<label class="col-sm-3 textareaLabel" for="publicKeyApi">服务公钥</label>
+
+				<div class="col-sm-9">
+					<textarea id="publicKeyApi" readOnly class="autosize-transition textarea_pub"/>
+				</div>
+			</div>
+
+			<div class="space-4"></div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+<div id="user_editor2" class="page-content row" style="display:none;overflow-x:hidden;overflow-y:auto; ">
+	
+	<!-- /section:settings.box -->
+	<div class="page-header">
+		<h1>
+			<p id="userIdTxt">添加新用户</p>
+			<!-- 
+			<small>
+				<i class="ace-icon fa fa-angle-double-right"></i>
+				常规变更
+			</small>
+			 -->
+		</h1>
+	</div><!-- /.page-header -->
+
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- PAGE CONTENT BEGINS -->
+			<form class="form-horizontal" role="form" id="f_user_edited">
+				<div id="req_add_id" class="form-group">
+			 		<label for="userId" class="col-sm-3 control-label no-padding-right">用户ID</label>
+					<div class="col-lg-5 col-sm-9 from-inline">
+						<input type="text" id="userId" class="full" name="userId" placeholder="登陆账号" title="登陆账号必填，确定后不可修改">
+					</div>
+			 	</div>
+				<!-- #section:elements.form -->
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="userName">用户名称</label>
+
+					<div class="col-lg-5 col-sm-9">
+						<input type="text" id="userName" name="userName" class="full" placeholder="Username"/>
+					</div>
+				</div>
+				<!-- /section:elements.form -->
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="uPassword">登陆密码</label>
+
+					<div class="col-lg-5 col-sm-9">
+						<input id="uPassword" 
+							name="uPassword" 
+							type="password"
+							class="form-control full" 
+							laceholder="密码"
+							title="登陆密码必填,长度5-20">
+					</div>
+				</div>
+				<!-- /section:elements.form -->
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="uType">验证类型</label>
+
+					<div class="col-lg-5 col-sm-9">
+						<select name="uType" class="select2 full" id="uType"></select>
+					</div>
+				</div>
+				
+				<div class="space-4" />
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1">注册时间</label>
+					<div class="col-lg-5 col-sm-9">
+						<!-- #section:plugins/date-time.datepicker -->
+						<div class="input-group">
+							<input disabled class="form-control date-picker full" id="createDate" name="createDate" type="text" data-date-format="yyyy-mm-dd" />
+							<span class="input-group-addon">
+								<i class="fa fa-calendar bigger-110"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="expiredDate">有效期</label>
+					<div class="col-lg-5 col-sm-9">
+						<!-- #section:plugins/date-time.datepicker -->
+						<div class="input-group">
+							<input class="form-control date-picker full" id="expiredDate" name="expiredDate" type="text" data-date-format="yyyy-mm-dd" />
+							<span class="input-group-addon">
+								<i class="fa fa-calendar bigger-110"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="orgId">所属机构</label>
+					<div class="col-lg-5 col-sm-9">
+						<select class="chosen-select form-control" id="orgId" name="orgId">
+						</select>
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="reqType">请求接口类型</label>
+					<div class="col-lg-5 col-sm-9">
+						<select class="chosen-select form-control full" id="reqType" name="reqType">
+						</select>
+					</div>
+				</div>
+				<div class="space-4"></div>
+			</form>
+			<script src="/assets/users/js/bootstrap-show-password.min.js"></script>
+			<script>
+			$(function(){
+				//datepicker plugin
+				//link
+				$('.date-picker').datepicker({
+					autoclose: true,
+					todayHighlight: true
+				})
+				$('#uPassword').password();
+				
+				$.ajax({
+					url: '/idcs/base/ckType',
+					type: 'get',
+					dataType: 'json',
+					success:function(response){
+						var data=response.rows;
+						if(!data) return;
+						$('#uType').select2({
+							 data: data,
+							 minimumResultsForSearch: Infinity,
+							 language: "zh-CN",
+						     placeholder: "验证类型",
+							 allowClear: false,
+							 multiple: false,
+						     escapeMarkup: function (markup) { return markup; }, // 自定义格式化防止xss注入
+							 width: '100%',
+							 dropdownParent: $('#w')
+						});
+					}
+				});
+				
+				$.ajax({
+					url: '/idcs/base/reqType',
+					type: 'get',
+					dataType: 'json',
+					success:function(response){
+						var data=response.rows;
+						if(!data) return;
+						$('#reqType').select2({
+						     data: data,
+						     minimumResultsForSearch: Infinity,
+							 language: "zh-CN",
+						     placeholder: "接口模式",
+							 allowClear: false,
+							 multiple: false,
+						     escapeMarkup: function (markup) { return markup; }, // 自定义格式化防止xss注入
+							 width: '100%',
+							 dropdownParent: $('#w')
+						});
+					}
+				});
+				
+				$.ajax({
+					url: '/idcs/base/org',
+					type: 'get',
+					dataType: 'json',
+					success:function(response){
+						var data=response.rows;
+						if(!data) return;
+						$('#orgId').select2({
+						     data: data,
+							 language: "zh-CN",
+						     placeholder: "选择机构",
+							 allowClear: false,
+							 multiple: false,
+						     escapeMarkup: function (markup) { return markup; }, // 自定义格式化防止xss注入
+							 width: '100%',
+							 dropdownParent: $('#w')
+						});
+					}
+				});
+			});
+			</script>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div><!-- /.page-content -->
+
+<!-- 设置select2 下拉框问题 -->
+<div id="w" style="position:absolute;z-index:19892018">
+</div>

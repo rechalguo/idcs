@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blc.apps.idcs.admin.mapper.ext.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.blc.apps.idcs.admin.entity.IcUser" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="U_TYPE" property="uType" jdbcType="VARCHAR" />
+    <result column="U_PASSWORD" property="uPassword" jdbcType="VARCHAR" />
+    <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="REQ_TYPE" property="reqType" jdbcType="VARCHAR" />
+    <result column="ORG_ID" property="orgId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.blc.apps.idcs.admin.entity.IcUserWithBLOBs" extends="BaseResultMap" >
+    <result column="PRIVATE_KEY" property="privateKey" jdbcType="CLOB" />
+    <result column="PUBLIC_KEY" property="publicKey" jdbcType="CLOB" />
+    <result column="PRIVATE_KEY_API" property="privateKeyApi" jdbcType="CLOB" />
+    <result column="PUBLIC_KEY_API" property="publicKeyApi" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, 
+    ORG_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API
+  </sql>
+  
+  
+  <select id="selectUsersByPage" resultMap="ResultMapWithBLOBs" parameterType="com.blc.apps.idcs.admin.model.UserModel" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from IC_USER
+    where 1=1
+    <if test="user.userId != null and ''.toString()!=user.userId" >
+    AND  user_id=#{user.userId,jdbcType=VARCHAR}
+    </if>
+    <if test="user.orgId != null and ''.toString()!=user.orgId" >
+    AND  org_id=#{user.orgId,jdbcType=VARCHAR}
+    </if>
+    
+  </select>
+  
+  
+</mapper>
