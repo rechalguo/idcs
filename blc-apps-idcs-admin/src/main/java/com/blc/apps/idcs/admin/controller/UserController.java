@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blc.apps.idcs.admin.entity.IcCompany;
+import com.blc.apps.idcs.admin.entity.IcRefers;
 import com.blc.apps.idcs.admin.entity.IcUser;
 import com.blc.apps.idcs.admin.entity.IcUserRefers;
 import com.blc.apps.idcs.admin.entity.IcUserWithBLOBs;
+import com.blc.apps.idcs.admin.mapper.ext.ReferMapper;
 import com.blc.apps.idcs.admin.model.OrgModel;
 import com.blc.apps.idcs.admin.model.UserModel;
 import com.blc.apps.idcs.admin.model.UserRefersModel;
@@ -32,6 +34,8 @@ public class UserController {
 	IcCompanyService orgService;
 	@Autowired
 	private ApiNotificationService notiferService;
+	@Autowired
+	private ReferMapper refersMapper;
 	
 	@PostMapping("/account")
 	public String userPage() {
@@ -94,11 +98,11 @@ public class UserController {
 		
 		Map<String, String> keys =new HashMap<>(4);
 		try {
-			Map<String, String> userKeys=RSAUtils.genKeyPair(512);
+			Map<String, String> userKeys=RSAUtils.genKeyPair(1024);
 			keys.put("publicKey", userKeys.get(RSAUtils.PUBLIC_KEY));
 			keys.put("privateKey", userKeys.get(RSAUtils.PRIVATE_KEY));
 			
-			Map<String, String> serverKeys=RSAUtils.genKeyPair(512);
+			Map<String, String> serverKeys=RSAUtils.genKeyPair(1024);
 			keys.put("publicKeyApi", serverKeys.get(RSAUtils.PUBLIC_KEY));
 			keys.put("privateKeyApi", serverKeys.get(RSAUtils.PRIVATE_KEY));
 			
@@ -250,6 +254,30 @@ public class UserController {
 			dataObject.put("code", "1");
 			dataObject.put("msg", "Add Error!");
 			e.printStackTrace();
+		}
+		return dataObject;
+	}
+	@PostMapping("/delUR")
+	@ResponseBody
+	public Object delAccRefers(IcUserRefers urs){
+		Map<String, Object> dataObject =new HashMap<>();
+		dataObject.put("msg", "");
+		boolean delOk=false;
+		try{
+			this.userService.delUserRefers(urs);
+			dataObject.put("code", "0");
+			dataObject.put("msg", "Del Success");
+			delOk=true;
+		}catch(Exception e){
+			dataObject.put("code", "1");
+			dataObject.put("msg", "Del Error!");
+			e.printStackTrace();
+		}
+		if(delOk){
+			//删除后，需要通知 API系统
+			IcRefers r=refersMapper.selectByPrimaryKey(urs.getrSeqNo());
+			Map<String, Object> rObj=(Map<String, Object>) this.reloadUserApi(urs.getrUserId(), r.getrId());
+			dataObject.put("msg", dataObject.get("msg").toString()+rObj.get("msg"));
 		}
 		return dataObject;
 	}

@@ -190,9 +190,9 @@ $(function(){
                     },
 					dataType: 'json',
 					dataFilter:function(response){
-						var code=response.code;
-						if('1'===code) {
-							return true; //true表示填写信息有误
+						var obj=eval('(' + response + ')');
+						if('0'===obj.code) {
+							return true; //true表示填写信息无误，系统不存在这个新的账号
 						} else {
 							return false;
 						}
@@ -330,7 +330,7 @@ $(function(){
 					<div class="col-xs-9 col-sm-9 col-lg-5 ">
 						<!-- #section:plugins/date-time.datepicker -->
 						<div class="input-group">
-							<input disabled class="form-control date-picker full" id="createTime" name="createTime" type="text" data-date-format="yyyy-mm-dd" />
+							<input readonly class="form-control date-picker full" id="createTime" name="createTime" type="text" data-date-format="yyyy-mm-dd" />
 							<span class="input-group-addon">
 								<i class="fa fa-calendar bigger-110"></i>
 							</span>

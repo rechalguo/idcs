@@ -281,10 +281,10 @@ $(function(){
                     data: {
                         userId: function () { return $("#userId").val(); },
                     },
-                    dataFilter: function (data, type) {//判断控制器返回的内容
-                    	var code=data.code;
-						if('1'===code) {
-							return true; //true表示填写信息有误
+                    dataFilter: function (resp, type) {//判断控制器返回的内容
+                    	var obj=eval('(' + resp + ')');
+						if('0'===obj.code) {
+							return true; //true表示填写信息无误，系统不存在这个新的账号
 						} else {
 							return false;
 						}
@@ -509,7 +509,7 @@ $(function(){
 					<div class="col-lg-5 col-sm-9">
 						<!-- #section:plugins/date-time.datepicker -->
 						<div class="input-group">
-							<input disabled class="form-control date-picker full" id="createDate" name="createDate" type="text" data-date-format="yyyy-mm-dd" />
+							<input readonly class="form-control date-picker full" id="createDate" name="createDate" type="text" data-date-format="yyyy-mm-dd" />
 							<span class="input-group-addon">
 								<i class="fa fa-calendar bigger-110"></i>
 							</span>

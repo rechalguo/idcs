@@ -76,8 +76,11 @@ public class ApiNotificationService {
 		Map<String,String> r=new HashMap<>();
 		r.put("code", "200");
 		if(!this.notification){
-			r.put("msg", "API系统不支持在线更新");
+			r.put("code", "401");
+			r.put("msg", "不支持在线更新API系统");
+			return r;
 		}
+		
 		Map<String,Object> cmd=new HashMap<>();
 		cmd.put("cmd", "reloadApis");
 		cmd.put("parameters",new ArrayList<String>(0));
@@ -137,7 +140,9 @@ public class ApiNotificationService {
 		Map<String,String> r=new HashMap<>();
 		r.put("code", "200");
 		if(!this.notification){
-			r.put("msg", "API系统不支持在线更新");
+			r.put("code", "401");
+			r.put("msg", "不支持在线更新API系统");
+			return r;
 		}
 		
 		if("System".equalsIgnoreCase(userId)){
@@ -196,4 +201,5 @@ public class ApiNotificationService {
 		}
 		return r;
 	}
+	
 }

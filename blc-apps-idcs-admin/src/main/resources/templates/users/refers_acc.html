@@ -52,6 +52,8 @@
 				未列出的用户可用系统所有接口</p>
 			<p><i class="fa fa-exclamation-circle red"></i>
 				如果用户只有"禁用"状态的接口，用户可用系统其它所有接口</p>
+			<p><i class="fa fa-exclamation-circle red"></i>
+				"添加关联/编辑/解除"操作需要通过"重载接口"操作通知API系统生效</p>
 		</div>
 		<div class="vspace-12-sm"></div>
 		
@@ -157,7 +159,7 @@ function edit(layer, rObj){
         	usernew=diffObj(row, usernew);
         	usernew.rSeqNo=row.rSeqNo;
         	usernew.rUserId=row.rUserId;
-        	if(Object.keys(usernew).length<=2){
+        	if(Object.keys(usernew).length<=3){
 				layer.alert("接口信息未发生变化");
 				return;
 			}
@@ -173,12 +175,61 @@ function edit(layer, rObj){
 }
 
 /**
+ * 编辑关联信息
+ */
+function del(layer, rObj){
+	var row=rObj.data;
+	if(!row) return;
+	var p=new Object();
+	p.rSeqNo=row.rSeqNo;
+	p.rId=row.rId;
+	p.rUserId=row.rUserId;
+	
+	layer.confirm('是否要删除关联信息(API系统会立即生效)!', {
+        btn: ['确定', '取消']
+    }, function (index, layero) {
+    	if(delURefer(p)){
+    		layui.use(['table'],function(){
+    			var table=layui.table;
+    			table.reload('tb_refer_acc');
+    		})
+    		layer.close(index);
+    	}
+        layer.msg("关联关系解除成功!",{ icon: 1, time: 1000 });
+    });
+}
+
+/**
  * 保存用户信息
  */
 function saveURefer(refer,newer){
 	var flag=false;
 	var url='/idcs/user/saveUR';
-	if(newer) url='/idcs/user/addUR';
+	if(newer) url='/idcs/user/addUR'
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: refer,
+		dataType: 'json',
+		async: false,
+		success:function(response){
+			layui.use('layer', function(){
+			  var layer = layui.layer;
+			  layer.alert(response.msg);
+			});
+			if('0'==response.code) {
+				flag=true;
+			}
+		}
+	});
+	return flag;
+}
+/**
+ * 保存用户信息
+ */
+function delURefer(refer){
+	var flag=false;
+	var url='/idcs/user/delUR';
 	$.ajax({
 		url: url,
 		type: 'post',
@@ -286,6 +337,8 @@ $(function(){
 		    var data = obj.data;
 		    if(obj.event==='edit'){
 		        edit(layer, obj);
+		    } else if(obj.event==='del'){
+		    	del(layer, obj);
 		    }
 		  });
 		  //监听工具栏
@@ -318,7 +371,7 @@ $(function(){
 </script>
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-  <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+  <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">解除</a>
 </script>
 <script type="text/html" id="toolbar">
   <div class="layui-btn-container">

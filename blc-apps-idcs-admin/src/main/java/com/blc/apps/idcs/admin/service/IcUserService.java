@@ -36,7 +36,7 @@ public class IcUserService {
 	};
 	
 	public void addUser(IcUserWithBLOBs user) throws Exception{
-		Map<String, String> userKeys=RSAUtils.genKeyPair(512);
+		Map<String, String> userKeys=RSAUtils.genKeyPair(1024);
 		user.setPrivateKey(userKeys.get(RSAUtils.PRIVATE_KEY));
 		user.setPublicKey(userKeys.get(RSAUtils.PUBLIC_KEY));
 		
@@ -90,6 +90,8 @@ public class IcUserService {
 	};
 	
 	/**
+	 * 删除关联后需要使API系统知道
+	 * 
 	 * @param urs
 	 * @return
 	 */
@@ -97,8 +99,8 @@ public class IcUserService {
 		if(StringUtils.isBlank(urs.getrUserId()) || urs.getrSeqNo()==null) 
 			throw new Exception ("[401]参数错误");
 		IcUserRefersExample e=new IcUserRefersExample();
-		e.createCriteria().andRUserIdEqualTo(urs.getrUserId());
-		e.getOredCriteria().get(0).andRSeqNoEqualTo(urs.getrSeqNo());
-		return this.userRefersMapper.deleteByExample(e);
+		e.createCriteria().andRUserIdEqualTo(urs.getrUserId()).andRSeqNoEqualTo(urs.getrSeqNo());
+		int delCounts=this.userRefersMapper.deleteByExample(e);
+		return delCounts;
 	};
 }

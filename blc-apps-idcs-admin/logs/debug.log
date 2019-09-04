@@ -1,0 +1,758 @@
+[2019-09-04 17:46:47.568] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting IdcsAdmin on DESKTOP-SHUGKBG with PID 44340 (E:\workspace\gitrep\idcsadmin\blc-apps-idcs-admin\target\classes started by rechel in E:\workspace\gitrep\idcsadmin\blc-apps-idcs-admin)
+[2019-09-04 17:46:47.625] [DEBUG] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:53) - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+[2019-09-04 17:46:47.626] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:684) - The following profiles are active: prod,share
+[2019-09-04 17:46:47.798] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@269f9719: startup date [Wed Sep 04 17:46:47 CST 2019]; root of context hierarchy
+[2019-09-04 17:46:50.701] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'shiroConf' of type [com.blc.apps.idcs.admin.ShiroConf$$EnhancerBySpringCGLIB$$ecc57d3d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:46:50.713] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.lifecycleBeanPostProcessor(ShiroConf.java:178) - 初始化bean:lifecycleBeanPostProcessor
+[2019-09-04 17:46:50.723] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.getDefaultAdvisorAutoProxyCreator(ShiroConf.java:184) - 初始化bean:DefaultAdvisorAutoProxyCreator
+[2019-09-04 17:46:50.772] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.sm(ShiroConf.java:77) - 初始化bean:securityManager
+[2019-09-04 17:46:51.879] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.realm(ShiroConf.java:142) - 初始化bean:textConfigurationRealm
+[2019-09-04 17:46:51.907] [DEBUG] - org.apache.shiro.spring.LifecycleBeanPostProcessor.postProcessBeforeInitialization(LifecycleBeanPostProcessor.java:86) - Initializing bean [realm]...
+[2019-09-04 17:46:51.907] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:234) - No authorizationCache instance set.  Checking for a cacheManager...
+[2019-09-04 17:46:51.908] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:248) - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[2019-09-04 17:46:51.947] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'realm' of type [org.apache.shiro.realm.text.TextConfigurationRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:46:51.962] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:46:51.964] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.shiroFilter(ShiroConf.java:86) - 初始化bean:shiroFilter
+[2019-09-04 17:46:52.124] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c26a8fab] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:46:53.249] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 9001 (http)
+[2019-09-04 17:46:53.277] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-9001"]
+[2019-09-04 17:46:53.290] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2019-09-04 17:46:53.291] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.34
+[2019-09-04 17:46:53.324] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+[2019-09-04 17:46:53.325] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+[2019-09-04 17:46:53.325] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+[2019-09-04 17:46:54.486] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+[2019-09-04 17:46:55.163] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2019-09-04 17:46:55.170] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2019-09-04 17:46:55.171] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 7401 ms
+[2019-09-04 17:46:55.236] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.createInstance(ShiroFilterFactoryBean.java:424) - Creating Shiro Filter instance.
+[2019-09-04 17:46:55.268] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/favicon.ico] from String definition [anon]
+[2019-09-04 17:46:55.269] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/favicon.ico] to filter [anon] with config [null]
+[2019-09-04 17:46:55.270] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/assets/**] from String definition [anon]
+[2019-09-04 17:46:55.270] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/assets/**] to filter [anon] with config [null]
+[2019-09-04 17:46:55.270] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/login] from String definition [authc]
+[2019-09-04 17:46:55.274] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/login] to filter [authc] with config [null]
+[2019-09-04 17:46:55.274] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/logout] from String definition [logout]
+[2019-09-04 17:46:55.275] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/logout] to filter [logout] with config [null]
+[2019-09-04 17:46:55.275] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/**] from String definition [authc]
+[2019-09-04 17:46:55.275] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/**] to filter [authc] with config [null]
+[2019-09-04 17:46:55.316] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'requestContextFilter'
+[2019-09-04 17:46:55.350] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'hiddenHttpMethodFilter'
+[2019-09-04 17:46:55.374] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'httpPutFormContentFilter'
+[2019-09-04 17:46:55.391] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'characterEncodingFilter'
+[2019-09-04 17:46:55.414] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2019-09-04 17:46:55.414] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2019-09-04 17:46:55.415] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2019-09-04 17:46:55.415] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2019-09-04 17:46:55.415] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:258) - Mapping filter: 'delegatingFilterProxy' to urls: [/*]
+[2019-09-04 17:46:55.416] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'shiroFilter' to: [/*]
+[2019-09-04 17:46:55.417] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2019-09-04 17:46:55.418] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet webServlet mapped to [/h2-console/*]
+[2019-09-04 17:46:55.680] [DEBUG] - com.zaxxer.hikari.HikariConfig.setDriverClassName(HikariConfig.java:495) - Driver class oracle.jdbc.OracleDriver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@6006d415
+[2019-09-04 17:46:55.790] [DEBUG] - org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:135) - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[2019-09-04 17:46:56.031] [DEBUG] - org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:135) - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[2019-09-04 17:46:56.736] [WARN] - org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'referController': Unsatisfied dependency expressed through field 'referService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'referService': Unsatisfied dependency expressed through field 'notificationService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiNotificationService': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'app.api.notification.type' in value "${app.api.notification.type}"
+[2019-09-04 17:46:56.756] [DEBUG] - org.apache.shiro.spring.LifecycleBeanPostProcessor.postProcessBeforeDestruction(LifecycleBeanPostProcessor.java:118) - Destroying bean [securityManager]...
+[2019-09-04 17:46:56.759] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Stopping service [Tomcat]
+[2019-09-04 17:46:56.834] [INFO] - org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logAutoConfigurationReport(ConditionEvaluationReportLoggingListener.java:101) - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2019-09-04 17:46:56.838] [ERROR] - org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:863) - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'referController': Unsatisfied dependency expressed through field 'referService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'referService': Unsatisfied dependency expressed through field 'notificationService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiNotificationService': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'app.api.notification.type' in value "${app.api.notification.type}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:586) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869) ~[spring-context-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:780) [spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) [spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333) [spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1277) [spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1265) [spring-boot-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at com.blc.apps.idcs.admin.IdcsAdmin.main(IdcsAdmin.java:39) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_112]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_112]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_112]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_112]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'referService': Unsatisfied dependency expressed through field 'notificationService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiNotificationService': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'app.api.notification.type' in value "${app.api.notification.type}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:586) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiNotificationService': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'app.api.notification.type' in value "${app.api.notification.type}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:378) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	... 24 more
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'app.api.notification.type' in value "${app.api.notification.type}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172) ~[spring-core-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124) ~[spring-core-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237) ~[spring-core-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211) ~[spring-core-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175) ~[spring-context-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:839) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1083) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:572) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:583) ~[spring-beans-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	... 24 more
+[2019-09-04 17:48:26.716] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting IdcsAdmin on DESKTOP-SHUGKBG with PID 33408 (E:\workspace\gitrep\idcsadmin\blc-apps-idcs-admin\target\classes started by rechel in E:\workspace\gitrep\idcsadmin\blc-apps-idcs-admin)
+[2019-09-04 17:48:26.724] [DEBUG] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:53) - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+[2019-09-04 17:48:26.725] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:684) - The following profiles are active: prod,share
+[2019-09-04 17:48:26.795] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@399f6af1: startup date [Wed Sep 04 17:48:26 CST 2019]; root of context hierarchy
+[2019-09-04 17:48:28.255] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'shiroConf' of type [com.blc.apps.idcs.admin.ShiroConf$$EnhancerBySpringCGLIB$$d004c339] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:48:28.268] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.lifecycleBeanPostProcessor(ShiroConf.java:178) - 初始化bean:lifecycleBeanPostProcessor
+[2019-09-04 17:48:28.283] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.getDefaultAdvisorAutoProxyCreator(ShiroConf.java:184) - 初始化bean:DefaultAdvisorAutoProxyCreator
+[2019-09-04 17:48:28.316] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.sm(ShiroConf.java:77) - 初始化bean:securityManager
+[2019-09-04 17:48:28.654] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.realm(ShiroConf.java:142) - 初始化bean:textConfigurationRealm
+[2019-09-04 17:48:28.681] [DEBUG] - org.apache.shiro.spring.LifecycleBeanPostProcessor.postProcessBeforeInitialization(LifecycleBeanPostProcessor.java:86) - Initializing bean [realm]...
+[2019-09-04 17:48:28.682] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:234) - No authorizationCache instance set.  Checking for a cacheManager...
+[2019-09-04 17:48:28.682] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:248) - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[2019-09-04 17:48:28.690] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'realm' of type [org.apache.shiro.realm.text.TextConfigurationRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:48:28.702] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:48:28.703] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.shiroFilter(ShiroConf.java:86) - 初始化bean:shiroFilter
+[2019-09-04 17:48:28.778] [INFO] - org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:326) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a5a9d5a7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-09-04 17:48:29.503] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 9001 (http)
+[2019-09-04 17:48:29.518] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-9001"]
+[2019-09-04 17:48:29.530] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2019-09-04 17:48:29.531] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.34
+[2019-09-04 17:48:29.546] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+[2019-09-04 17:48:29.548] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+[2019-09-04 17:48:29.549] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+[2019-09-04 17:48:30.628] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+[2019-09-04 17:48:31.010] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2019-09-04 17:48:31.018] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2019-09-04 17:48:31.018] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 4225 ms
+[2019-09-04 17:48:31.060] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.createInstance(ShiroFilterFactoryBean.java:424) - Creating Shiro Filter instance.
+[2019-09-04 17:48:31.070] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/favicon.ico] from String definition [anon]
+[2019-09-04 17:48:31.071] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/favicon.ico] to filter [anon] with config [null]
+[2019-09-04 17:48:31.071] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/assets/**] from String definition [anon]
+[2019-09-04 17:48:31.072] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/assets/**] to filter [anon] with config [null]
+[2019-09-04 17:48:31.072] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/login] from String definition [authc]
+[2019-09-04 17:48:31.072] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/login] to filter [authc] with config [null]
+[2019-09-04 17:48:31.072] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/logout] from String definition [logout]
+[2019-09-04 17:48:31.072] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/logout] to filter [logout] with config [null]
+[2019-09-04 17:48:31.073] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.createChain(DefaultFilterChainManager.java:127) - Creating chain [/**] from String definition [authc]
+[2019-09-04 17:48:31.073] [DEBUG] - org.apache.shiro.web.filter.mgt.DefaultFilterChainManager.applyChainConfig(DefaultFilterChainManager.java:278) - Attempting to apply path [/**] to filter [authc] with config [null]
+[2019-09-04 17:48:31.094] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'requestContextFilter'
+[2019-09-04 17:48:31.118] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'hiddenHttpMethodFilter'
+[2019-09-04 17:48:31.132] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'httpPutFormContentFilter'
+[2019-09-04 17:48:31.146] [DEBUG] - org.apache.shiro.spring.web.ShiroFilterFactoryBean.postProcessBeforeInitialization(ShiroFilterFactoryBean.java:501) - Found filter chain candidate filter 'characterEncodingFilter'
+[2019-09-04 17:48:31.159] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2019-09-04 17:48:31.160] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2019-09-04 17:48:31.160] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2019-09-04 17:48:31.160] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2019-09-04 17:48:31.160] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:258) - Mapping filter: 'delegatingFilterProxy' to urls: [/*]
+[2019-09-04 17:48:31.160] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'shiroFilter' to: [/*]
+[2019-09-04 17:48:31.161] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2019-09-04 17:48:31.163] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet webServlet mapped to [/h2-console/*]
+[2019-09-04 17:48:31.332] [DEBUG] - com.zaxxer.hikari.HikariConfig.setDriverClassName(HikariConfig.java:495) - Driver class oracle.jdbc.OracleDriver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@169cd4d4
+[2019-09-04 17:48:31.400] [DEBUG] - org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:135) - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[2019-09-04 17:48:31.577] [DEBUG] - org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:135) - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[2019-09-04 17:48:32.280] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:33) - 加载response_message.properties配置文件
+[2019-09-04 17:48:32.282] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:BIND_EXCEPTION_MSG,value:请求参数绑定失败
+[2019-09-04 17:48:32.283] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:UE_MSG,value:页面路径有误
+[2019-09-04 17:48:32.283] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:UE_CODE,value:404
+[2019-09-04 17:48:32.283] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:RTE_MSG,value:运行时异常
+[2019-09-04 17:48:32.284] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:REQUEST_METHOD_UNSUPPORTED_CODE,value:4000
+[2019-09-04 17:48:32.284] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:NPE_CODE,value:5001
+[2019-09-04 17:48:32.284] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:REQUEST_METHOD_UNSUPPORTED_MSG,value:请求方式异常
+[2019-09-04 17:48:32.284] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:FAIL_CODE,value:5000
+[2019-09-04 17:48:32.290] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:FAIL_MSG,value:操作失败
+[2019-09-04 17:48:32.290] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:NRE_MSG,value:返回值为空
+[2019-09-04 17:48:32.290] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:NRE_CODE,value:5002
+[2019-09-04 17:48:32.291] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:BIND_EXCEPTION_CODE,value:4001
+[2019-09-04 17:48:32.291] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:SUCCESS_CODE,value:2000
+[2019-09-04 17:48:32.291] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:SUCCESS_MSG,value:操作成功
+[2019-09-04 17:48:32.309] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:RTE_CODE,value:5001
+[2019-09-04 17:48:32.310] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:37) - response_message.properties---------key:NPE_MSG,value:空指针异常
+[2019-09-04 17:48:32.311] [INFO] - com.blc.apps.idcs.admin.error.PropertiesClass.init(PropertiesClass.java:39) - response_message.properties参数加载完毕
+[2019-09-04 17:48:32.450] [DEBUG] - com.blc.apps.idcs.admin.ShiroConf.getShiroDialect(ShiroConf.java:192) - 初始化shiroDialect:ShiroDialect
+[2019-09-04 17:48:32.553] [DEBUG] - org.hibernate.validator.internal.engine.resolver.TraversableResolvers.getDefault(TraversableResolvers.java:60) - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+[2019-09-04 17:48:32.553] [DEBUG] - org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:89) - Loaded expression factory via original TCCL
+[2019-09-04 17:48:32.565] [DEBUG] - org.hibernate.validator.internal.engine.resolver.TraversableResolvers.getDefault(TraversableResolvers.java:60) - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+[2019-09-04 17:48:32.566] [DEBUG] - org.hibernate.validator.internal.engine.ConfigurationImpl.messageInterpolator(ConfigurationImpl.java:148) - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+[2019-09-04 17:48:32.566] [DEBUG] - org.hibernate.validator.internal.engine.ConfigurationImpl.constraintValidatorFactory(ConfigurationImpl.java:180) - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+[2019-09-04 17:48:32.567] [DEBUG] - org.hibernate.validator.internal.engine.ConfigurationImpl.parameterNameProvider(ConfigurationImpl.java:194) - Setting custom ParameterNameProvider of type org.springframework.validation.beanvalidation.LocalValidatorFactoryBean$1
+[2019-09-04 17:48:32.568] [DEBUG] - org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream(ValidationXmlParser.java:120) - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[2019-09-04 17:48:32.568] [DEBUG] - org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath(ResourceLoaderHelper.java:53) - Trying to load META-INF/validation.xml via user class loader
+[2019-09-04 17:48:32.569] [DEBUG] - org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath(ResourceLoaderHelper.java:60) - Trying to load META-INF/validation.xml via TCCL
+[2019-09-04 17:48:32.569] [DEBUG] - org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath(ResourceLoaderHelper.java:66) - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[2019-09-04 17:48:32.570] [DEBUG] - org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream(ValidationXmlParser.java:127) - No META-INF/validation.xml found. Using annotation based configuration only.
+[2019-09-04 17:48:32.574] [DEBUG] - org.hibernate.validator.internal.engine.ValidatorFactoryImpl.logValidatorFactoryScopedConfiguration(ValidatorFactoryImpl.java:578) - HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+[2019-09-04 17:48:32.575] [DEBUG] - org.hibernate.validator.internal.engine.ValidatorFactoryImpl.logValidatorFactoryScopedConfiguration(ValidatorFactoryImpl.java:579) - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+[2019-09-04 17:48:32.575] [DEBUG] - org.hibernate.validator.internal.engine.ValidatorFactoryImpl.logValidatorFactoryScopedConfiguration(ValidatorFactoryImpl.java:580) - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+[2019-09-04 17:48:32.575] [DEBUG] - org.hibernate.validator.internal.engine.ValidatorFactoryImpl.logValidatorFactoryScopedConfiguration(ValidatorFactoryImpl.java:581) - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+[2019-09-04 17:48:32.575] [DEBUG] - org.hibernate.validator.internal.engine.ValidatorFactoryImpl.logValidatorFactoryScopedConfiguration(ValidatorFactoryImpl.java:582) - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[2019-09-04 17:48:32.667] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2019-09-04 17:48:33.454] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:588) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@399f6af1: startup date [Wed Sep 04 17:48:26 CST 2019]; root of context hierarchy
+[2019-09-04 17:48:33.562] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/base/reqType],methods=[GET]}" onto public com.blc.apps.idcs.admin.model.BaseInfoModel com.blc.apps.idcs.admin.controller.BaseInfoController.getReqType(com.blc.apps.idcs.admin.model.BaseInfoModel)
+[2019-09-04 17:48:33.563] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/base/ckType],methods=[GET]}" onto public com.blc.apps.idcs.admin.model.BaseInfoModel com.blc.apps.idcs.admin.controller.BaseInfoController.getCheckType(com.blc.apps.idcs.admin.model.BaseInfoModel)
+[2019-09-04 17:48:33.564] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/base/org],methods=[GET]}" onto public com.blc.apps.idcs.admin.model.BaseInfoModel com.blc.apps.idcs.admin.controller.BaseInfoController.getOrgType(com.blc.apps.idcs.admin.model.BaseInfoModel)
+[2019-09-04 17:48:33.564] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/base/accs],methods=[GET]}" onto public com.blc.apps.idcs.admin.model.BaseInfoModel com.blc.apps.idcs.admin.controller.BaseInfoController.getAccounts(com.blc.apps.idcs.admin.model.BaseInfoModel)
+[2019-09-04 17:48:33.565] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/base/refers],methods=[GET]}" onto public com.blc.apps.idcs.admin.model.BaseInfoModel com.blc.apps.idcs.admin.controller.BaseInfoController.getRefers(com.blc.apps.idcs.admin.model.BaseInfoModel)
+[2019-09-04 17:48:33.568] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/login],methods=[GET]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.LoginController.loginTemplate()
+[2019-09-04 17:48:33.569] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/unAuthorized.html]}" onto public org.springframework.web.servlet.ModelAndView com.blc.apps.idcs.admin.controller.LoginController.unAuthorized()
+[2019-09-04 17:48:33.569] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/login],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.blc.apps.idcs.admin.controller.LoginController.loginTemplate2(java.lang.String,java.lang.String,java.lang.Boolean)
+[2019-09-04 17:48:33.569] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/index.html]}" onto public org.springframework.web.servlet.ModelAndView com.blc.apps.idcs.admin.controller.LoginController.onLoginSuccess()
+[2019-09-04 17:48:33.575] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/refer/list],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.ReferController.listUser(com.blc.apps.idcs.admin.model.ReferModel)
+[2019-09-04 17:48:33.576] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/refer/refer],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.ReferController.orgManager()
+[2019-09-04 17:48:33.577] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/refer/add],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.ReferController.addRefers(com.blc.apps.idcs.admin.entity.IcRefers)
+[2019-09-04 17:48:33.577] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/refer/exists],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.ReferController.existsRefer(com.blc.apps.idcs.admin.entity.IcRefers)
+[2019-09-04 17:48:33.585] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/refer/save],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.ReferController.saveRefer(com.blc.apps.idcs.admin.entity.IcRefers)
+[2019-09-04 17:48:33.593] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/user],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.StatController.user()
+[2019-09-04 17:48:33.594] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/thirdparty],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.StatController.apis()
+[2019-09-04 17:48:33.594] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/user/dsdist],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listUserDsDist(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.594] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/api/dsdist],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listApiDsDist(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.594] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/user/list],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listUserStaticPage(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.595] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/api/showchart],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listApiStaticChart(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.595] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/api/list],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listApiStaticPage(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.595] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/sta/user/showchart],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.StatController.listUserStaticChart(com.blc.apps.idcs.admin.model.StatModel)
+[2019-09-04 17:48:33.606] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/list],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.listUser(com.blc.apps.idcs.admin.model.UserModel)
+[2019-09-04 17:48:33.607] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/orgList],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.listOrgnization(com.blc.apps.idcs.admin.model.OrgModel)
+[2019-09-04 17:48:33.608] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/orgAdd],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.addOrg(com.blc.apps.idcs.admin.entity.IcCompany)
+[2019-09-04 17:48:33.608] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/addUR],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.addAccRefers(com.blc.apps.idcs.admin.entity.IcUserRefers)
+[2019-09-04 17:48:33.609] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/orgExists],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.existsOrg(com.blc.apps.idcs.admin.entity.IcCompany)
+[2019-09-04 17:48:33.610] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/save],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.saveUser(com.blc.apps.idcs.admin.entity.IcUserWithBLOBs)
+[2019-09-04 17:48:33.610] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/exists],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.existsUser(com.blc.apps.idcs.admin.entity.IcUser)
+[2019-09-04 17:48:33.610] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/saveUR],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.saveAccRefers(com.blc.apps.idcs.admin.entity.IcUserRefers)
+[2019-09-04 17:48:33.611] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/org],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.UserController.orgPage()
+[2019-09-04 17:48:33.611] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/rsa/reset],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.resetRsa(java.lang.String)
+[2019-09-04 17:48:33.612] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/refers],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.UserController.userRefersPage()
+[2019-09-04 17:48:33.612] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/accRefers],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.listAccRefers(com.blc.apps.idcs.admin.model.UserRefersModel)
+[2019-09-04 17:48:33.613] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/account],methods=[POST]}" onto public java.lang.String com.blc.apps.idcs.admin.controller.UserController.userPage()
+[2019-09-04 17:48:33.613] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/orgSave],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.saveOrg(com.blc.apps.idcs.admin.entity.IcCompany)
+[2019-09-04 17:48:33.613] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/reloadUserApi],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.reloadUserApi(java.lang.String,java.lang.String)
+[2019-09-04 17:48:33.614] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/reloadApis],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.reloadApi()
+[2019-09-04 17:48:33.615] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/delUR],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.delAccRefers(com.blc.apps.idcs.admin.entity.IcUserRefers)
+[2019-09-04 17:48:33.615] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/idcs/user/add],methods=[POST]}" onto public java.lang.Object com.blc.apps.idcs.admin.controller.UserController.addUser(com.blc.apps.idcs.admin.entity.IcUserWithBLOBs)
+[2019-09-04 17:48:33.617] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.blc.apps.idcs.admin.error.AuthExceptionService.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2019-09-04 17:48:33.618] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:549) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2019-09-04 17:48:33.676] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2019-09-04 17:48:33.676] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2019-09-04 17:48:33.900] [INFO] - org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:61) - Adding welcome page template: index
+[2019-09-04 17:48:34.206] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1119) - HikariPool-1 - configuration:
+[2019-09-04 17:48:34.210] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - allowPoolSuspension.............false
+[2019-09-04 17:48:34.211] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - autoCommit......................true
+[2019-09-04 17:48:34.211] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - catalog.........................none
+[2019-09-04 17:48:34.211] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - connectionInitSql...............none
+[2019-09-04 17:48:34.211] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - connectionTestQuery.............none
+[2019-09-04 17:48:34.211] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - connectionTimeout...............30000
+[2019-09-04 17:48:34.212] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - dataSource......................none
+[2019-09-04 17:48:34.212] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - dataSourceClassName.............none
+[2019-09-04 17:48:34.212] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - dataSourceJNDI..................none
+[2019-09-04 17:48:34.230] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - dataSourceProperties............{password=<masked>}
+[2019-09-04 17:48:34.230] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - driverClassName................."oracle.jdbc.OracleDriver"
+[2019-09-04 17:48:34.230] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - healthCheckProperties...........{}
+[2019-09-04 17:48:34.232] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - healthCheckRegistry.............none
+[2019-09-04 17:48:34.232] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - idleTimeout.....................600000
+[2019-09-04 17:48:34.233] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - initializationFailFast..........true
+[2019-09-04 17:48:34.233] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - initializationFailTimeout.......1
+[2019-09-04 17:48:34.233] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - isolateInternalQueries..........false
+[2019-09-04 17:48:34.233] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - jdbc4ConnectionTest.............false
+[2019-09-04 17:48:34.234] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - jdbcUrl.........................jdbc:oracle:thin:@(description=(ADDRESS_LIST=(address=(protocol=tcp)(host=192.168.110.56)(port=1521))(load_balance=yes))(connect_data=(server=dedicated)(service_name=orcl)(failover_mode=(type=session)(method=basic)(retries=5)(delay=15))))
+[2019-09-04 17:48:34.234] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - leakDetectionThreshold..........0
+[2019-09-04 17:48:34.235] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - maxLifetime.....................1800000
+[2019-09-04 17:48:34.235] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - maximumPoolSize.................10
+[2019-09-04 17:48:34.235] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - metricRegistry..................none
+[2019-09-04 17:48:34.236] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - metricsTrackerFactory...........none
+[2019-09-04 17:48:34.236] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - minimumIdle.....................10
+[2019-09-04 17:48:34.236] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - password........................<masked>
+[2019-09-04 17:48:34.236] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - poolName........................"HikariPool-1"
+[2019-09-04 17:48:34.236] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - readOnly........................false
+[2019-09-04 17:48:34.237] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - registerMbeans..................false
+[2019-09-04 17:48:34.238] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - scheduledExecutor...............none
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - scheduledExecutorService........internal
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - schema..........................none
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - threadFactory...................internal
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - transactionIsolation............default
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - username........................"bdi"
+[2019-09-04 17:48:34.239] [DEBUG] - com.zaxxer.hikari.HikariConfig.logConfiguration(HikariConfig.java:1151) - validationTimeout...............5000
+[2019-09-04 17:48:34.240] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) - HikariPool-1 - Starting...
+[2019-09-04 17:48:34.687] [INFO] - com.zaxxer.hikari.pool.PoolBase.getAndSetNetworkTimeout(PoolBase.java:516) - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[2019-09-04 17:48:34.690] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:538) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6c20031b
+[2019-09-04 17:48:34.692] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) - HikariPool-1 - Start completed.
+[2019-09-04 17:48:34.781] [INFO] - org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1208) - Using default implementation for ThreadExecutor
+[2019-09-04 17:48:34.816] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+[2019-09-04 17:48:34.825] [INFO] - org.quartz.core.SchedulerSignalerImpl.<init>(SchedulerSignalerImpl.java:61) - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2019-09-04 17:48:34.827] [INFO] - org.quartz.core.QuartzScheduler.<init>(QuartzScheduler.java:229) - Quartz Scheduler v.2.3.0 created.
+[2019-09-04 17:48:34.828] [INFO] - org.quartz.simpl.RAMJobStore.initialize(RAMJobStore.java:155) - RAMJobStore initialized.
+[2019-09-04 17:48:34.829] [INFO] - org.quartz.core.QuartzScheduler.initialize(QuartzScheduler.java:294) - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2019-09-04 17:48:34.844] [INFO] - org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1362) - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2019-09-04 17:48:34.844] [INFO] - org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1366) - Quartz scheduler version: 2.3.0
+[2019-09-04 17:48:34.844] [INFO] - org.quartz.core.QuartzScheduler.setJobFactory(QuartzScheduler.java:2287) - JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@6c2bb3d7
+[2019-09-04 17:48:34.918] [DEBUG] - reactor.util.Loggers$Slf4JLogger.debug(Loggers.java:213) - Using Slf4j logging framework
+[2019-09-04 17:48:34.919] [DEBUG] - reactor.util.Loggers$Slf4JLogger.debug(Loggers.java:213) - Enabling stacktrace debugging via onOperatorDebug
+[2019-09-04 17:48:34.919] [DEBUG] - reactor.util.Loggers$Slf4JLogger.debug(Loggers.java:218) - Hooking onEachOperator: onOperatorDebug
+[2019-09-04 17:48:35.014] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@7c1b54c4
+[2019-09-04 17:48:35.085] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@72dca537
+[2019-09-04 17:48:35.154] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@76e33fb4
+[2019-09-04 17:48:35.228] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@33e1af0c
+[2019-09-04 17:48:35.297] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@15fa70c0
+[2019-09-04 17:48:35.367] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@5378bc43
+[2019-09-04 17:48:35.437] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@76ed75e2
+[2019-09-04 17:48:35.511] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@57806f34
+[2019-09-04 17:48:35.529] [INFO] - org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:57) - LiveReload server is running on port 35729
+[2019-09-04 17:48:35.575] [INFO] - org.springframework.jmx.export.MBeanExporter.afterSingletonsInstantiated(MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+[2019-09-04 17:48:35.579] [INFO] - org.springframework.jmx.export.MBeanExporter.autodetect(MBeanExporter.java:895) - Bean with name 'dataSource' has been autodetected for JMX exposure
+[2019-09-04 17:48:35.585] [DEBUG] - com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:702) - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6077b348
+[2019-09-04 17:48:35.586] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:48:35.592] [INFO] - org.springframework.jmx.export.MBeanExporter.registerBeanInstance(MBeanExporter.java:668) - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+[2019-09-04 17:48:35.601] [INFO] - org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) - Starting beans in phase 2147483647
+[2019-09-04 17:48:35.602] [INFO] - org.springframework.scheduling.quartz.SchedulerFactoryBean.startScheduler(SchedulerFactoryBean.java:706) - Starting Quartz Scheduler now
+[2019-09-04 17:48:35.602] [INFO] - org.quartz.core.QuartzScheduler.start(QuartzScheduler.java:547) - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2019-09-04 17:48:35.609] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:48:35.612] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-9001"]
+[2019-09-04 17:48:35.720] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+[2019-09-04 17:48:35.803] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:206) - Tomcat started on port(s): 9001 (http) with context path ''
+[2019-09-04 17:48:35.806] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) - Started IdcsAdmin in 9.612 seconds (JVM running for 10.671)
+[2019-09-04 17:48:59.005] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:49:01.452] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2019-09-04 17:49:01.452] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494) - FrameworkServlet 'dispatcherServlet': initialization started
+[2019-09-04 17:49:01.479] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:509) - FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+[2019-09-04 17:49:01.563] [DEBUG] - org.apache.shiro.web.servlet.SimpleCookie.readValue(SimpleCookie.java:389) - Found 'rememberMe' cookie value [ttNp0NonOw+9J5GynjwVRZHHW0p/nfAboPQTQjhimyh5/Sh3h4w9wKYZpVQNraJyUj2jVGClAuRuKNlZlE/Dk6/1G+O5feKbw5HDMX2u9TaNLSXyUkSc+KPHqWo/0/EsPbgutkePfiS8uhHx5So4uVDcvgH/2gXFg5WUEYYLm0LJxtmZJz39Sb4R040BBaVp8q6WT890Qd2gX/r0SZx8VljwsO47iPZTDNOMyBaKyTTeoHCAsanPEZZl4MTOBdEwTyPWcpXHryhImKUwGk6f4qTOXX/KOgkr8na7hYMPrC0gxkV1AHgVk9nPBJzlOIb4AurNWg4FWuWOpEhPklMqPCKfc/+LidZAycbUXwvq/Jbfk8Gkj5+94hgIMBDsbKouR0e8AE5gIDl2X0YY0RlpJbiCiAVEhcQd4AAHjsGE0ebBCymHeL6SK8aNmU3l8/ohLOIqwyvwmR/wJb5p66HjN8iQc6Ln8tFhYWAEshrh1cJ8HuaFWD7ACXXlPfu6MoBiSefdMqCzJo6+YfqZFDKIa3dM7yW+wXVW4YhTRPvgoIPymn8X4jPiyJd7COBZkv9p]
+[2019-09-04 17:49:01.589] [WARN] - org.apache.shiro.mgt.AbstractRememberMeManager.onRememberedPrincipalFailure(AbstractRememberMeManager.java:449) - There was a failure while trying to retrieve remembered principals.  This could be due to a configuration problem or corrupted principals.  This could also be due to a recently changed encryption key, if you are using a shiro.ini file, this property would be 'securityManager.rememberMeManager.cipherKey' see: http://shiro.apache.org/web.html#Web-RememberMeServices. The remembered identity will be forgotten and not used for this request.
+[2019-09-04 17:49:01.605] [DEBUG] - org.apache.shiro.web.servlet.SimpleCookie.addCookieHeader(SimpleCookie.java:226) - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Sep-2019 09:49:01 GMT]
+[2019-09-04 17:49:01.606] [WARN] - org.apache.shiro.mgt.DefaultSecurityManager.getRememberedIdentity(DefaultSecurityManager.java:618) - Delegate RememberMeManager instance of type [org.apache.shiro.web.mgt.CookieRememberMeManager] threw an exception during getRememberedPrincipals().
+org.apache.shiro.crypto.CryptoException: Unable to execute 'doFinal' with cipher instance [javax.crypto.Cipher@eecb0c5].
+	at org.apache.shiro.crypto.JcaCipherService.crypt(JcaCipherService.java:462) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.crypto.JcaCipherService.crypt(JcaCipherService.java:445) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.crypto.JcaCipherService.decrypt(JcaCipherService.java:390) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.crypto.JcaCipherService.decrypt(JcaCipherService.java:382) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AbstractRememberMeManager.decrypt(AbstractRememberMeManager.java:482) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AbstractRememberMeManager.convertBytesToPrincipals(AbstractRememberMeManager.java:419) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AbstractRememberMeManager.getRememberedPrincipals(AbstractRememberMeManager.java:386) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.getRememberedIdentity(DefaultSecurityManager.java:613) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.resolvePrincipals(DefaultSecurityManager.java:501) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.createSubject(DefaultSecurityManager.java:347) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.Subject$Builder.buildSubject(Subject.java:845) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.subject.WebSubject$Builder.buildWebSubject(WebSubject.java:148) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.createSubject(AbstractShiroFilter.java:292) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:359) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_112]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_112]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_112]
+Caused by: javax.crypto.BadPaddingException: Given final block not properly padded
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:989) ~[sunjce_provider.jar:1.8.0_112]
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:845) ~[sunjce_provider.jar:1.8.0_112]
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446) ~[sunjce_provider.jar:1.8.0_112]
+	at javax.crypto.Cipher.doFinal(Cipher.java:2165) ~[?:1.8.0_121]
+	at org.apache.shiro.crypto.JcaCipherService.crypt(JcaCipherService.java:459) ~[shiro-core-1.4.1.jar:1.4.1]
+	... 48 more
+[2019-09-04 17:49:04.818] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:49:12.621] [DEBUG] - org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:572) - Looked up AuthenticationInfo [jill.coder] from doGetAuthenticationInfo
+[2019-09-04 17:49:12.621] [DEBUG] - org.apache.shiro.realm.AuthenticatingRealm.cacheAuthenticationInfoIfPossible(AuthenticatingRealm.java:510) - AuthenticationInfo caching is disabled for info [jill.coder].  Submitted token: [org.apache.shiro.authc.UsernamePasswordToken - jill.coder, rememberMe=true (0:0:0:0:0:0:0:1)].
+[2019-09-04 17:49:12.621] [DEBUG] - org.apache.shiro.authc.credential.SimpleCredentialsMatcher.equals(SimpleCredentialsMatcher.java:96) - Performing credentials equality check for tokenCredentials of type [[C and accountCredentials of type [java.lang.String]
+[2019-09-04 17:49:12.621] [DEBUG] - org.apache.shiro.authc.credential.SimpleCredentialsMatcher.equals(SimpleCredentialsMatcher.java:102) - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+[2019-09-04 17:49:12.622] [DEBUG] - org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:233) - Authentication successful for token [org.apache.shiro.authc.UsernamePasswordToken - jill.coder, rememberMe=true (0:0:0:0:0:0:0:1)].  Returned account [jill.coder]
+[2019-09-04 17:49:12.682] [DEBUG] - org.apache.shiro.web.servlet.SimpleCookie.addCookieHeader(SimpleCookie.java:226) - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Sep-2019 09:49:12 GMT]
+[2019-09-04 17:49:12.780] [DEBUG] - org.apache.shiro.web.servlet.SimpleCookie.addCookieHeader(SimpleCookie.java:226) - Added HttpServletResponse Cookie [rememberMe=IIk1ile73LhTPeXg9k2O6F2fFgMLuXZ/T+wdztNSt9ORhMOHuTKHtCvc287mx+rdM7MOy/Ao02wlX5XEoTdPjhBqiXfYc+f2dcx2A7kr7bLJs8TCcN5nTwpZgT9OWWcfewtxSc0kgzczGAGQd4Fo2nfJXxodf/xb5kkCbb+QYR/odk0o4V/3+5n209/J+zvqJ1zaUya/3fLR31jZdbvpW7N3GlkE9w2/owrwQH68h6oy9fHR1o7qZSFqMGh4FE/IZtbLLWJDqiGrPI4eY2p0BfXeSObLcnUdc9Ofq7csIlrgJV+fD2oeFYjtBipa9EqyFC/+tXiWkuzI9xXEnkGQ5wXrFLv4abfPHw7jlxxrY64p9tIdLFWGD1bB+AGPE4ggUJ5bZdsBoXqikPBZ8fKLaG2ODIBUz2cHcYJ1S64eF0dXWZ/w0d/Rg6WOcp5rOi1UJfJXcn2KuryZvutHcGetd9qKI+YRBgZ5gSzCOqEOnP+z9OJ/JfVBffgV+wOB8DuyESZFB/xGzqDQ6JybmbatTBeEYL4s/iPbxlbVzz8aLDoQ0XtEpcUNCxjkDwMFrQtA; Path=/; Max-Age=31536000; Expires=Thu, 03-Sep-2020 09:49:12 GMT; HttpOnly]
+[2019-09-04 17:49:14.119] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.r_Id id, t.r_Name text from IC_CONF_REQTYPE t where 1 = 1 
+[2019-09-04 17:49:14.119] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.Org_Id id, t.Org_Name text, case t.actived when 'OFF' THEN 'disabled' when 'ON' THEN '' end disabled from IC_COMPANY t where 1 = 1 
+[2019-09-04 17:49:14.119] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.ck_id id, t.ck_name text from IC_CONF_CKTYPE t where 1 = 1 
+[2019-09-04 17:49:14.366] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.367] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.366] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.401] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 2
+[2019-09-04 17:49:14.401] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:14.410] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:14.530] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.Org_Id id, t.Org_Name text, case t.actived when 'OFF' THEN 'disabled' when 'ON' THEN '' end disabled from IC_COMPANY t where 1 = 1 
+[2019-09-04 17:49:14.531] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.535] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:14.767] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID , PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API from IC_USER where 1=1) tmp_mybatis_total_count_query 
+[2019-09-04 17:49:14.768] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.779] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID , PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API from IC_USER where 1=1) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:49:14.779] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:14.793] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 5
+[2019-09-04 17:49:17.724] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select ORG_ID, ORG_NAME, CREATE_TIME, ACTIVED from IC_COMPANY where 1=1) tmp_mybatis_total_count_query 
+[2019-09-04 17:49:17.724] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:17.727] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select ORG_ID, ORG_NAME, CREATE_TIME, ACTIVED from IC_COMPANY where 1=1) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:49:17.727] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:17.730] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:18.484] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.Org_Id id, t.Org_Name text, case t.actived when 'OFF' THEN 'disabled' when 'ON' THEN '' end disabled from IC_COMPANY t where 1 = 1 
+[2019-09-04 17:49:18.484] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.488] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:18.494] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID , PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API from IC_USER where 1=1) tmp_mybatis_total_count_query 
+[2019-09-04 17:49:18.495] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.497] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID , PRIVATE_KEY, PUBLIC_KEY, PRIVATE_KEY_API, PUBLIC_KEY_API from IC_USER where 1=1) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:49:18.497] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.506] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 5
+[2019-09-04 17:49:18.515] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.ck_id id, t.ck_name text from IC_CONF_CKTYPE t where 1 = 1 
+[2019-09-04 17:49:18.515] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.r_Id id, t.r_Name text from IC_CONF_REQTYPE t where 1 = 1 
+[2019-09-04 17:49:18.515] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.515] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.520] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:18.523] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 2
+[2019-09-04 17:49:18.521] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.Org_Id id, t.Org_Name text, case t.actived when 'OFF' THEN 'disabled' when 'ON' THEN '' end disabled from IC_COMPANY t where 1 = 1 
+[2019-09-04 17:49:18.526] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:18.529] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:21.374] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:234) - No authorizationCache instance set.  Checking for a cacheManager...
+[2019-09-04 17:49:21.374] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:248) - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[2019-09-04 17:49:21.430] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select t.Org_Id id, t.Org_Name text, case t.actived when 'OFF' THEN 'disabled' when 'ON' THEN '' end disabled from IC_COMPANY t where 1 = 1 
+[2019-09-04 17:49:21.430] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:21.433] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY from IC_REFERS where 1=1) tmp_mybatis_total_count_query 
+[2019-09-04 17:49:21.434] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:21.434] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:21.438] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY from IC_REFERS where 1=1) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:49:21.438] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:21.444] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:22.773] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:49:34.819] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:49:37.524] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:234) - No authorizationCache instance set.  Checking for a cacheManager...
+[2019-09-04 17:49:37.524] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:248) - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[2019-09-04 17:49:37.555] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_total_count_query 
+[2019-09-04 17:49:37.556] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:37.559] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:49:37.560] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:37.568] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:37.597] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID from IC_USER 
+[2019-09-04 17:49:37.598] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:37.629] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY from IC_REFERS 
+[2019-09-04 17:49:37.630] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 7
+[2019-09-04 17:49:37.630] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:49:37.637] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 17:49:47.059] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:50:04.820] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:50:14.809] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:50:20.539] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: insert into IC_USER_REFERS (R_USER_ID, R_SEQ_NO, R_WEIGHT, R_IS_EXPIRED, R_IS_OFF, R_DESCRIPTION ) values (?, ?, ?, ?, ?, ? ) 
+[2019-09-04 17:50:20.543] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: Zhongdamen(String), 3(BigDecimal), 10(BigDecimal), 2030-12-31 00:00:00.0(Timestamp), 1(String), (String)
+[2019-09-04 17:50:20.564] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==    Updates: 1
+[2019-09-04 17:50:20.590] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_total_count_query 
+[2019-09-04 17:50:20.590] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:50:20.592] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 17:50:20.593] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 17:50:20.598] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 5
+[2019-09-04 17:50:34.823] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:50:40.773] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:50:49.734] [INFO] - com.blc.apps.idcs.admin.service.ApiNotificationService.reloadUserApi(ApiNotificationService.java:181) - Request Api Opt[{"account":"Admin","entCode":"administrator","msgCnt":"J3O9zPsY4zGatk2Y4IFyD4A/LqAEdJhHibjEYwcY7uMkSFLDykcPmDQ+lnUY7xmpc+cxrEV/1OlC78r9o0KBBg==","reqAsynType":"2","signature":"","version":"2.0.0"}]
+[2019-09-04 17:50:50.094] [DEBUG] - org.apache.http.client.protocol.RequestAddCookies.process(RequestAddCookies.java:122) - CookieSpec selected: default
+[2019-09-04 17:50:50.105] [DEBUG] - org.apache.http.client.protocol.RequestAuthCache.process(RequestAuthCache.java:76) - Auth cache not set in the context
+[2019-09-04 17:50:50.106] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:249) - Connection request: [route: {}->http://172.20.13.52:9001][total kept alive: 0; route allocated: 0 of 20; total allocated: 0 of 200]
+[2019-09-04 17:50:50.122] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.leaseConnection(PoolingHttpClientConnectionManager.java:282) - Connection leased: [id: 0][route: {}->http://172.20.13.52:9001][total kept alive: 0; route allocated: 1 of 20; total allocated: 1 of 200]
+[2019-09-04 17:50:50.124] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:234) - Opening connection {}->http://172.20.13.52:9001
+[2019-09-04 17:50:50.126] [DEBUG] - org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:138) - Connecting to /172.20.13.52:9001
+[2019-09-04 17:50:50.135] [DEBUG] - org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:145) - Connection established 172.30.7.196:53589<->172.20.13.52:9001
+[2019-09-04 17:50:50.136] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:255) - Executing request POST /services/idcs/opt HTTP/1.1
+[2019-09-04 17:50:50.136] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:260) - Target auth state: UNCHALLENGED
+[2019-09-04 17:50:50.137] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:266) - Proxy auth state: UNCHALLENGED
+[2019-09-04 17:50:50.138] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:135) - http-outgoing-0 >> POST /services/idcs/opt HTTP/1.1
+[2019-09-04 17:50:50.138] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Content-Type: application/json;charset=utf-8
+[2019-09-04 17:50:50.139] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Content-Length: 196
+[2019-09-04 17:50:50.139] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Content-Encoding: UTF-8
+[2019-09-04 17:50:50.139] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Host: 172.20.13.52:9001
+[2019-09-04 17:50:50.139] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Connection: Keep-Alive
+[2019-09-04 17:50:50.139] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_112)
+[2019-09-04 17:50:50.140] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[2019-09-04 17:50:50.140] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "POST /services/idcs/opt HTTP/1.1[\r][\n]"
+[2019-09-04 17:50:50.140] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Content-Type: application/json;charset=utf-8[\r][\n]"
+[2019-09-04 17:50:50.140] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Content-Length: 196[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Content-Encoding: UTF-8[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Host: 172.20.13.52:9001[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_112)[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[2019-09-04 17:50:50.141] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 >> "[\r][\n]"
+[2019-09-04 17:50:50.142] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:86) - http-outgoing-0 >> "{"account":"Admin","entCode":"administrator","msgCnt":"J3O9zPsY4zGatk2Y4IFyD4A/LqAEdJhHibjEYwcY7uMkSFLDykcPmDQ+lnUY7xmpc+cxrEV/1OlC78r9o0KBBg==","reqAsynType":"2","signature":"","version":"2.0.0"}"
+[2019-09-04 17:50:50.175] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[2019-09-04 17:50:50.176] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "Date: Wed, 04 Sep 2019 09:50:50 GMT[\r][\n]"
+[2019-09-04 17:50:50.176] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+[2019-09-04 17:50:50.176] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "Transfer-Encoding: chunked[\r][\n]"
+[2019-09-04 17:50:50.177] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "Server: Jetty(9.4.12.v20180830)[\r][\n]"
+[2019-09-04 17:50:50.177] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "[\r][\n]"
+[2019-09-04 17:50:50.177] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "2E[\r][\n]"
+[2019-09-04 17:50:50.177] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:86) - http-outgoing-0 << "{"result":"200","msg":"[0xe6][0x8e][0xa5][0xe5][0x8f][0xa3][0xe5][0xb7][0xb2][0xe9][0x87][0x8d][0xe6][0x96][0xb0][0xe5][0x8a][0xa0][0xe8][0xbd][0xbd]"}"
+[2019-09-04 17:50:50.180] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:124) - http-outgoing-0 << HTTP/1.1 200 OK
+[2019-09-04 17:50:50.181] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-0 << Date: Wed, 04 Sep 2019 09:50:50 GMT
+[2019-09-04 17:50:50.181] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-0 << Content-Type: application/json
+[2019-09-04 17:50:50.181] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-0 << Transfer-Encoding: chunked
+[2019-09-04 17:50:50.181] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-0 << Server: Jetty(9.4.12.v20180830)
+[2019-09-04 17:50:50.187] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:284) - Connection can be kept alive indefinitely
+[2019-09-04 17:50:50.190] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "[\r][\n]"
+[2019-09-04 17:50:50.191] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "0[\r][\n]"
+[2019-09-04 17:50:50.191] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-0 << "[\r][\n]"
+[2019-09-04 17:50:50.191] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.releaseConnection(PoolingHttpClientConnectionManager.java:314) - Connection [id: 0][route: {}->http://172.20.13.52:9001] can be kept alive indefinitely
+[2019-09-04 17:50:50.191] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.releaseConnection(PoolingHttpClientConnectionManager.java:320) - Connection released: [id: 0][route: {}->http://172.20.13.52:9001][total kept alive: 1; route allocated: 1 of 20; total allocated: 1 of 200]
+[2019-09-04 17:50:50.191] [DEBUG] - com.blc.apps.idcs.util.HttpUtils.postBodyRequest(HttpUtils.java:132) - # Request Complete [ 168 ] status: 200
+[2019-09-04 17:50:50.192] [INFO] - com.blc.apps.idcs.admin.service.ApiNotificationService.reloadUserApi(ApiNotificationService.java:184) - Get Response[{"result":"200","msg":"接口已重新加载"}]
+[2019-09-04 17:51:04.825] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:51:09.117] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:51:32.854] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:51:34.827] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:52:00.652] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:52:04.829] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:52:26.525] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:52:34.830] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:52:53.766] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:53:04.832] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:53:17.715] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:53:34.833] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:53:45.069] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:54:04.834] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:54:10.998] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:54:34.836] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:54:39.581] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:55:03.231] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:55:04.838] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:55:30.130] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:55:34.839] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:55:55.508] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:56:04.841] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:56:24.613] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:56:34.842] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:56:53.335] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:57:04.844] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:57:18.344] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:57:34.844] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:57:41.652] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:58:04.846] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:58:07.943] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:58:34.846] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:58:36.025] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:59:04.071] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:59:04.847] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:59:30.485] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 17:59:34.849] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 17:59:55.542] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:00:04.850] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:00:22.923] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:00:34.851] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:00:48.649] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:01:04.851] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:01:13.593] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:01:34.852] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:01:40.669] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:02:04.746] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:02:04.854] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:02:31.798] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:02:34.855] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:02:58.090] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:03:04.857] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:03:23.114] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:03:34.859] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:03:50.742] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:04:04.860] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:04:15.103] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:04:34.862] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:04:42.172] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:05:04.863] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:05:11.109] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:05:34.865] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:05:39.693] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:05:54.692] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select T.DATA_SRC dataSrc, SUM(T.CNT) counts from IC_INFO_UP T WHERE T.REPORT_DATE >= TRUNC(?,'MM') AND T.REPORT_DATE < add_months(TRUNC(?,'MM'), 1) GROUP BY T.DATA_SRC 
+[2019-09-04 18:05:54.692] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 2019-09-01(Date), 2019-09-01(Date)
+[2019-09-04 18:05:54.716] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select T.REPORT_DATE vDate, SUM(T.CNT) counts from IC_INFO_UP T WHERE T.REPORT_DATE >= TRUNC(?,'MM') AND T.REPORT_DATE < add_months(TRUNC(?,'MM'), 1) AND T.DATA_SRC NOT IN ('0', '1') GROUP BY T.REPORT_DATE ORDER BY vDate asc, COUNTS DESC 
+[2019-09-04 18:05:54.717] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select T.REPORT_DATE vDate, T.DATA_SRC userId, T.R_NAME userName, SUM(T.CNT) counts from IC_INFO_UP T WHERE T.REPORT_DATE >= TRUNC(?,'MM') AND T.REPORT_DATE < add_months(TRUNC(?,'MM'), 1) GROUP BY T.DATA_SRC, T.R_NAME, T.REPORT_DATE ORDER BY T.REPORT_DATE asc, COUNTS DESC) tmp_mybatis_total_count_query 
+[2019-09-04 18:05:54.717] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 2018-09-01(Date), 2019-09-01(Date)
+[2019-09-04 18:05:54.719] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 2019-09-04(Date), 2019-09-04(Date)
+[2019-09-04 18:05:54.721] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 2
+[2019-09-04 18:05:54.726] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select T.REPORT_DATE vDate, T.DATA_SRC userId, T.R_NAME userName, SUM(T.CNT) counts from IC_INFO_UP T WHERE T.REPORT_DATE >= TRUNC(?,'MM') AND T.REPORT_DATE < add_months(TRUNC(?,'MM'), 1) GROUP BY T.DATA_SRC, T.R_NAME, T.REPORT_DATE ORDER BY T.REPORT_DATE asc, COUNTS DESC) tmp_mybatis_cache_tb where ROWNUM<=10) where row_id>0 
+[2019-09-04 18:05:54.737] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 2019-09-04(Date), 2019-09-04(Date)
+[2019-09-04 18:05:54.738] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 18:05:54.741] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 2
+[2019-09-04 18:05:58.585] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:234) - No authorizationCache instance set.  Checking for a cacheManager...
+[2019-09-04 18:05:58.586] [DEBUG] - org.apache.shiro.realm.AuthorizingRealm.getAuthorizationCacheLazy(AuthorizingRealm.java:248) - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[2019-09-04 18:05:58.606] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_total_count_query 
+[2019-09-04 18:05:58.607] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:05:58.612] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 18:05:58.613] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:05:58.615] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select USER_ID, USER_NAME, U_TYPE, U_PASSWORD, EXPIRED_DATE, CREATE_DATE, PAY_TYPE, REQ_TYPE, ORG_ID from IC_USER 
+[2019-09-04 18:05:58.615] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:05:58.617] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY from IC_REFERS 
+[2019-09-04 18:05:58.617] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:05:58.624] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 5
+[2019-09-04 18:05:58.636] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 7
+[2019-09-04 18:05:58.638] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 18:06:04.503] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:06:04.866] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:06:31.644] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:06:34.868] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:06:57.269] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:07:04.871] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:07:21.374] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: delete from IC_USER_REFERS WHERE ( R_USER_ID = ? and R_SEQ_NO = ? ) 
+[2019-09-04 18:07:21.376] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: Zhongdamen(String), 3(BigDecimal)
+[2019-09-04 18:07:21.394] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==    Updates: 1
+[2019-09-04 18:07:25.909] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:07:32.454] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select SEQ_NO, R_URL, R_USER_KEY, R_TIME_OUT, R_WEIGHT, IS_OFF, EXPIRED_DATE, R_DESCRIPTION, CLASS_NAME, R_NAME, R_ID, R_SERVER_KEY from IC_REFERS where SEQ_NO = ? 
+[2019-09-04 18:07:32.455] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 3(BigDecimal)
+[2019-09-04 18:07:32.466] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 1
+[2019-09-04 18:07:32.844] [INFO] - com.blc.apps.idcs.admin.service.ApiNotificationService.reloadUserApi(ApiNotificationService.java:181) - Request Api Opt[{"account":"Admin","entCode":"administrator","msgCnt":"J3O9zPsY4zGatk2Y4IFyD4A/LqAEdJhHibjEYwcY7uPkQmsgERJdozf9iME4VHI9L3NaO17uBBLOcFv6U3h1Cw==","reqAsynType":"2","signature":"","version":"2.0.0"}]
+[2019-09-04 18:07:32.872] [DEBUG] - org.apache.http.client.protocol.RequestAddCookies.process(RequestAddCookies.java:122) - CookieSpec selected: default
+[2019-09-04 18:07:32.874] [DEBUG] - org.apache.http.client.protocol.RequestAuthCache.process(RequestAuthCache.java:76) - Auth cache not set in the context
+[2019-09-04 18:07:32.875] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:249) - Connection request: [route: {}->http://172.20.13.52:9001][total kept alive: 1; route allocated: 1 of 20; total allocated: 1 of 200]
+[2019-09-04 18:07:32.877] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:86) - http-outgoing-0 << "end of stream"
+[2019-09-04 18:07:32.878] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.close(LoggingManagedHttpClientConnection.java:81) - http-outgoing-0: Close connection
+[2019-09-04 18:07:32.880] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.leaseConnection(PoolingHttpClientConnectionManager.java:282) - Connection leased: [id: 1][route: {}->http://172.20.13.52:9001][total kept alive: 0; route allocated: 1 of 20; total allocated: 1 of 200]
+[2019-09-04 18:07:32.881] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:234) - Opening connection {}->http://172.20.13.52:9001
+[2019-09-04 18:07:32.882] [DEBUG] - org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:138) - Connecting to /172.20.13.52:9001
+[2019-09-04 18:07:32.888] [DEBUG] - org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:145) - Connection established 172.30.7.196:53694<->172.20.13.52:9001
+[2019-09-04 18:07:32.889] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:255) - Executing request POST /services/idcs/opt HTTP/1.1
+[2019-09-04 18:07:32.890] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:260) - Target auth state: UNCHALLENGED
+[2019-09-04 18:07:32.891] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:266) - Proxy auth state: UNCHALLENGED
+[2019-09-04 18:07:32.892] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:135) - http-outgoing-1 >> POST /services/idcs/opt HTTP/1.1
+[2019-09-04 18:07:32.893] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Content-Type: application/json;charset=utf-8
+[2019-09-04 18:07:32.894] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Content-Length: 196
+[2019-09-04 18:07:32.895] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Content-Encoding: UTF-8
+[2019-09-04 18:07:32.896] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Host: 172.20.13.52:9001
+[2019-09-04 18:07:32.897] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Connection: Keep-Alive
+[2019-09-04 18:07:32.898] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_112)
+[2019-09-04 18:07:32.899] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onRequestSubmitted(LoggingManagedHttpClientConnection.java:138) - http-outgoing-1 >> Accept-Encoding: gzip,deflate
+[2019-09-04 18:07:32.901] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "POST /services/idcs/opt HTTP/1.1[\r][\n]"
+[2019-09-04 18:07:32.902] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Content-Type: application/json;charset=utf-8[\r][\n]"
+[2019-09-04 18:07:32.902] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Content-Length: 196[\r][\n]"
+[2019-09-04 18:07:32.903] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Content-Encoding: UTF-8[\r][\n]"
+[2019-09-04 18:07:32.904] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Host: 172.20.13.52:9001[\r][\n]"
+[2019-09-04 18:07:32.904] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Connection: Keep-Alive[\r][\n]"
+[2019-09-04 18:07:32.905] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_112)[\r][\n]"
+[2019-09-04 18:07:32.906] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[2019-09-04 18:07:32.906] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 >> "[\r][\n]"
+[2019-09-04 18:07:32.907] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:86) - http-outgoing-1 >> "{"account":"Admin","entCode":"administrator","msgCnt":"J3O9zPsY4zGatk2Y4IFyD4A/LqAEdJhHibjEYwcY7uPkQmsgERJdozf9iME4VHI9L3NaO17uBBLOcFv6U3h1Cw==","reqAsynType":"2","signature":"","version":"2.0.0"}"
+[2019-09-04 18:07:32.966] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "HTTP/1.1 200 OK[\r][\n]"
+[2019-09-04 18:07:32.967] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "Date: Wed, 04 Sep 2019 10:07:33 GMT[\r][\n]"
+[2019-09-04 18:07:32.968] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "Content-Type: application/json[\r][\n]"
+[2019-09-04 18:07:32.969] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "Transfer-Encoding: chunked[\r][\n]"
+[2019-09-04 18:07:32.970] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "Server: Jetty(9.4.12.v20180830)[\r][\n]"
+[2019-09-04 18:07:32.972] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "[\r][\n]"
+[2019-09-04 18:07:32.972] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "31[\r][\n]"
+[2019-09-04 18:07:32.974] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:86) - http-outgoing-1 << "{"result":"400","msg":"[0xe6][0x8e][0xa5][0xe5][0x8f][0xa3][0xe9][0x87][0x8d][0xe6][0x96][0xb0][0xe5][0x8a][0xa0][0xe8][0xbd][0xbd][0xe5][0xa4][0xb1][0xe8][0xb4][0xa5]"}"
+[2019-09-04 18:07:32.975] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:124) - http-outgoing-1 << HTTP/1.1 200 OK
+[2019-09-04 18:07:32.976] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-1 << Date: Wed, 04 Sep 2019 10:07:33 GMT
+[2019-09-04 18:07:32.977] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-1 << Content-Type: application/json
+[2019-09-04 18:07:32.978] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-1 << Transfer-Encoding: chunked
+[2019-09-04 18:07:32.979] [DEBUG] - org.apache.http.impl.conn.LoggingManagedHttpClientConnection.onResponseReceived(LoggingManagedHttpClientConnection.java:127) - http-outgoing-1 << Server: Jetty(9.4.12.v20180830)
+[2019-09-04 18:07:32.981] [DEBUG] - org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:284) - Connection can be kept alive indefinitely
+[2019-09-04 18:07:32.982] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "[\r][\n]"
+[2019-09-04 18:07:32.983] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "0[\r][\n]"
+[2019-09-04 18:07:32.984] [DEBUG] - org.apache.http.impl.conn.Wire.wire(Wire.java:72) - http-outgoing-1 << "[\r][\n]"
+[2019-09-04 18:07:32.985] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.releaseConnection(PoolingHttpClientConnectionManager.java:314) - Connection [id: 1][route: {}->http://172.20.13.52:9001] can be kept alive indefinitely
+[2019-09-04 18:07:32.986] [DEBUG] - org.apache.http.impl.conn.PoolingHttpClientConnectionManager.releaseConnection(PoolingHttpClientConnectionManager.java:320) - Connection released: [id: 1][route: {}->http://172.20.13.52:9001][total kept alive: 1; route allocated: 1 of 20; total allocated: 1 of 200]
+[2019-09-04 18:07:32.988] [DEBUG] - com.blc.apps.idcs.util.HttpUtils.postBodyRequest(HttpUtils.java:132) - # Request Complete [ 135 ] status: 200
+[2019-09-04 18:07:32.988] [INFO] - com.blc.apps.idcs.admin.service.ApiNotificationService.reloadUserApi(ApiNotificationService.java:184) - Get Response[{"result":"400","msg":"接口重新加载失败"}]
+[2019-09-04 18:07:34.872] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:07:52.575] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:07:57.923] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select count(0) from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_total_count_query 
+[2019-09-04 18:07:57.923] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:07:57.926] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==>  Preparing: select * from (select tmp_mybatis_cache_tb.*,ROWNUM row_id from (select U.USER_ID rUserId, U.USER_NAME userName, R.R_ID rId, R.R_NAME rName, UR.R_SEQ_NO rSeqNo, UR.R_WEIGHT rWeight, UR.R_IS_EXPIRED rIsExpired, UR.R_IS_OFF rIsOff, UR.R_DESCRIPTION rDescription from IC_USER U INNER JOIN IC_USER_REFERS UR ON (U.USER_ID = UR.R_USER_ID) INNER JOIN IC_REFERS R ON (UR.R_SEQ_NO = R.SEQ_NO) WHERE 1=1 order by ur.r_user_id asc) tmp_mybatis_cache_tb where ROWNUM<=5) where row_id>0 
+[2019-09-04 18:07:57.927] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - ==> Parameters: 
+[2019-09-04 18:07:57.933] [DEBUG] - org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug(BaseJdbcLogger.java:159) - <==      Total: 4
+[2019-09-04 18:08:04.873] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:08:17.823] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:08:34.875] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:08:42.147] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:09:04.876] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:09:05.291] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:09:34.425] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:09:34.878] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:10:00.454] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:10:04.878] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:10:23.723] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:10:34.879] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:10:48.970] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers
+[2019-09-04 18:11:04.881] [DEBUG] - com.zaxxer.hikari.pool.HikariPool.logPoolState(HikariPool.java:404) - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+[2019-09-04 18:11:17.189] [DEBUG] - org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:291) - batch acquisition of 0 triggers

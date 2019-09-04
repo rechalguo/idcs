@@ -61,6 +61,8 @@
 			<p>
 				<i class="fa fa-exclamation-circle red"></i>
 				设置接口"过期"或"禁用"时将直接影响用户使用</p>
+				<i class="fa fa-exclamation-circle red"></i>
+				"添加新接口后"需要通过"重载接口"操作通知API系统生效</p>
 		</div>
 		<div class="vspace-12-sm"></div>
 
@@ -278,10 +280,10 @@ $(function(){
                     data: {
                         rId: function () { return $("#rId").val(); },
                     },
-                    dataFilter: function (data, type) {//判断控制器返回的内容
-                    	var code=data.code;
-						if('1'===code) {
-							return true; //true表示填写信息有误
+                    dataFilter: function (response, type) {//判断控制器返回的内容
+                    	var obj=eval('(' + response + ')');
+						if('0'===obj.code) {
+							return true; //true表示填写信息无误，系统不存在这个新的账号
 						} else {
 							return false;
 						}
